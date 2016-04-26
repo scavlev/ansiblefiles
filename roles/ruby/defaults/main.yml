@@ -1,7 +1,7 @@
 ---
 
 repo_ruby_version: "2.3"
-rvm_ruby_version: "2.3.0"
+rvm_ruby_version: "2.3.1"
 
 rvm_path: ~/.rvm
 rvm_exec: "{{ rvm_path }}/bin/rvm"
@@ -9,5 +9,5 @@ rvm_init_script: "{{ rvm_path }}/scripts/rvm"
 
 rvm_version: stable
 rvm_install_url: https://get.rvm.io
-rvm_install_flags: 
+rvm_install_flags:
 rvm_autolib_mode: 3
