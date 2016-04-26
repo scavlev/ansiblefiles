@@ -4,4 +4,4 @@
 [push]
   default = simple
 [pull]
-	rebase = true
+  rebase = true
