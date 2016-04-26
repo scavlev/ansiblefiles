@@ -19,4 +19,4 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 function ansiblefiles() { cd ~/.ansiblefiles && ./ansiblefiles.sh "$@" || true && cd $OLDPWD ;}
 
-alias vscode="setsid ~/dev/tools/vscode/Code > /dev/null 2>&1"
+alias vscode="setsid ~/dev/tools/vscode/code > /dev/null 2>&1"
