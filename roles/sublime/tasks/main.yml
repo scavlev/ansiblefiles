@@ -1,0 +1,53 @@
+---
+
+- name: Add Sublime Text apt key
+  apt_key: 
+    keyserver: "{{ ubuntu_keyserver }}"
+    id: EEA14886
+    state: present
+
+- name: Add Sublime Text repo
+  apt_repository:
+    repo: "deb http://ppa.launchpad.net/webupd8team/sublime-text-3/ubuntu {{ ubuntu_codename }} main"
+    state: present
+    update_cache: yes
+
+- name: Install Sublime Text
+  apt:
+    name: sublime-text-installer
+    state: latest
+
+- name: Create required Sublime directories
+  file: 
+    path: "{{ sublime_config_dir }}/{{ item }}"
+    state: directory
+  become: no
+  with_items:
+    - Installed Packages
+    - Packages
+
+- name: Install Sublime Package Control
+  get_url:
+    url: https://packagecontrol.io/Package%20Control.sublime-package
+    dest: "{{ sublime_config_dir }}/Installed Packages/Package Control.sublime-package"
+  become: no
+
+- name: Stat Sublime settings
+  stat:
+    path: "{{ sublime_settings_dir }}"
+  become: no
+  register: stat_sublime
+
+- name: Backup existing Sublime settings
+  command: "mv {{ sublime_settings_dir }} {{ sublime_settings_dir }}.bak"
+  args:
+    creates: "{{ sublime_settings_dir }}.bak"
+  become: no
+  when: stat_sublime.stat.islnk is defined and not stat_sublime.stat.islnk
+
+- name: Symlink Sublime settings
+  file:
+    src: "{{ ansiblefiles_sublime_settings_dir }}"
+    dest: "{{ sublime_settings_dir }}"
+    state: link
+  become: no

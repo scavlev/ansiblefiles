@@ -1,0 +1,41 @@
+---
+
+- name: Install zsh libs
+  apt: 
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - zsh
+    - wget
+
+- name: Clone Oh-My-Zsh repo
+  git:
+    repo: "{{ omzsh_git_repo }}"
+    dest: "{{ omzsh_target_dir }}"
+    accept_hostkey: yes
+  become: no
+
+- name: Set zsh as default shell
+  user:
+    name: "{{ username }}"
+    shell: /bin/zsh
+
+- name: Stat .zshrc
+  stat:  
+    path: ~/.zshrc
+  become: no
+  register: stat_zshrc
+
+- name: Backup existing .zshrc
+  command: mv ~/.zshrc ~/.zshrc.bak
+  args:
+    creates: ~/.zshrc.bak
+  become: no
+  when: stat_zshrc.stat.islnk is defined and not stat_zshrc.stat.islnk
+
+- name: Symlink .zshrc
+  file:
+    src: "{{ ansiblefiles_location }}/roles/shell/files/zshrc"
+    dest: ~/.zshrc
+    state: link
+  become: no

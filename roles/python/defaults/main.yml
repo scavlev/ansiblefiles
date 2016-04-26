@@ -1,0 +1,3 @@
+---
+
+pip_install_script: "{{ tmp_files_dir }}/get-pip.py"

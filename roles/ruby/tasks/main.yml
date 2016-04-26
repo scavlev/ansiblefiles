@@ -1,0 +1,8 @@
+---
+
+- include: rvm.yml
+  become: no
+  when: type == 'rvm'
+
+- include: repo.yml
+  when: type == 'repo'

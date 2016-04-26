@@ -1,0 +1,46 @@
+---
+
+- name: Add Docker apt key
+  apt_key: 
+    keyserver: hkp://pgp.mit.edu:80
+    id: 2C52609D 
+    state: present
+
+- name: Add Docker repo
+  apt_repository: 
+    repo: "deb https://apt.dockerproject.org/repo ubuntu-{{ ubuntu_codename }} main"
+    state: present
+    update_cache: yes
+
+- name: Install docker dependencies
+  apt: 
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - python-pycurl
+    - apparmor
+    - aufs-tools
+    - cgroup-lite
+
+- name: Install Docker
+  apt: 
+    name: docker-engine 
+    state: latest
+
+- name: Add user to docker group
+  user:
+    name: "{{ item }}"
+    groups: docker
+    append: yes
+  with_items:
+    - "{{ username }}"
+
+- name: Update ufw to allow forwarding
+  lineinfile: 
+    dest: /etc/default/ufw
+    regexp: DEFAULT_FORWARD_POLICY= 
+    line: DEFAULT_FORWARD_POLICY="ACCEPT"
+
+- name: Reload ufw
+  ufw:
+    state: reloaded

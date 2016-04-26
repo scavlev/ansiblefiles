@@ -1,0 +1,53 @@
+---
+
+- name: Add Atom apt key
+  apt_key:
+    keyserver: "{{ ubuntu_keyserver }}"
+    id: EEA14886
+    state: present
+
+- name: Add Atom repo
+  apt_repository:
+    repo: "deb http://ppa.launchpad.net/webupd8team/atom/ubuntu {{ ubuntu_codename }} main"
+    state: present
+    update_cache: yes
+
+- name: Stat Atom settings
+  stat:  
+    path: ~/.atom
+  become: no
+  register: stat_atom
+
+- name: Backup existing Atom settings
+  command: mv ~/.atom ~/.atom.bak
+  args:
+    creates: ~/.atom.bak
+  become: no
+  when: stat_atom.stat.islnk is defined and not stat_atom.stat.islnk
+
+- name: Symlink Atom settings
+  file:
+    src: "{{ ansiblefiles_location }}/roles/atom/files/atom"
+    dest: "~/.atom"
+    state: link
+  become: no
+
+- name: Install Atom
+  apt:
+    name: atom
+    state: latest
+
+- name: Install Atom packages
+  shell: "apm install {{ item }}"
+  with_items:
+    - linter-eslint
+    - sort-lines
+    - atom-terminal
+    - terminal-plus
+    - react
+    - editorconfig
+    - Stylus
+    - git-log
+    - git-control
+  become: no
+  changed_when: false

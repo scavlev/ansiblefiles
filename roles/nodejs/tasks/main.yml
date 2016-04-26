@@ -1,0 +1,8 @@
+---
+
+- include: nvm.yml
+  become: no
+  when: type == 'nvm'
+
+- include: repo.yml
+  when: type == 'repo'

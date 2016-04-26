@@ -1,0 +1,3 @@
+'.platform-linux .terminal-plus .terminal, .platform-win32 .terminal-plus .terminal':
+  'ctrl-shift-c': 'terminal-plus:copy'
+  'ctrl-shift-v': 'terminal-plus:paste'

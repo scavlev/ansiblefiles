@@ -1,0 +1,72 @@
+---
+
+- name: Create Visual Studio Code download directories
+  file: 
+    path: "{{ item }}"
+    state: directory
+  with_items:
+    - "{{ tools_dir }}"
+    - "{{ vscode_download_dir }}"
+    - "{{ vscode_extraction_dir }}"
+    - "{{ vscode_config_dir }}"
+
+- name: Download Visual Studio Code archive
+  get_url:
+    url: "{{ vscode_download_link }}"
+    dest: "{{ vscode_download_dir }}"
+  register: download_result
+
+- name: Remove previous installation
+  file: 
+    path: "{{ item }}"
+    state: absent
+  with_items:
+    - "{{ vscode_extraction_dir }}"
+  when: download_result.changed
+
+- name: Create Visual Studio Code extraction directory
+  file: 
+    path: "{{ item }}"
+    state: directory
+  with_items:
+    - "{{ vscode_extraction_dir }}"
+  when: download_result.changed
+
+- name: Unarchive Visual Studio Code
+  unarchive:
+    src: "{{ download_result.dest }}"
+    dest: "{{ vscode_extraction_dir }}"
+    copy: no
+  register: unarchive_result
+  when: download_result.changed
+
+- name: Kill Microsoft spies
+  shell: "cat product.json| jq '.enableTelemetry = false' > product.json.tmp && mv product.json.tmp product.json"
+  args:
+    chdir: "{{ vscode_extracted_folder_name }}/resources/app"
+  when: download_result.changed
+
+- name: Symlink extracted Visual Studio Code
+  file:
+    src: "{{ vscode_extracted_folder_name }}"
+    dest: "{{ vscode_target_dir }}"
+    state: link
+
+- name: Stat Visual Studio Code settings
+  stat:
+    path: "{{ vscode_settings_dir }}"
+  become: no
+  register: stat_vsc
+
+- name: Backup existing Visual Studio Code settings
+  command: "mv {{ vscode_settings_dir }} {{ vscode_settings_dir }}.bak"
+  args:
+    creates: "{{ vscode_settings_dir }}.bak"
+  become: no
+  when: stat_vsc.stat.islnk is defined and not stat_vsc.stat.islnk
+
+- name: Symlink Visual Studio Code settings
+  file:
+    src: "{{ ansiblefiles_location }}/roles/vscode/files/User"
+    dest: "{{ vscode_settings_dir }}"
+    state: link

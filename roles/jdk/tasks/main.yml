@@ -1,0 +1,22 @@
+---
+
+- name: Add webupd8 apt key
+  apt_key:
+    keyserver: "{{ ubuntu_keyserver }}"
+    id: EEA14886
+    state: present
+
+- name: Add webupd8 repo
+  apt_repository:
+    repo: "deb http://ppa.launchpad.net/webupd8team/java/ubuntu {{ ubuntu_codename }} main"
+    state: present
+    update_cache: yes
+
+- name: Auto accept Oracle JDK license
+  shell: echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections
+  changed_when: false
+
+- name: Install Java8
+  apt:
+    name: oracle-java8-installer
+    state: latest

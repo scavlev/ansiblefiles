@@ -1,0 +1,63 @@
+---
+
+- name: Download RVM gpg key
+  get_url:
+    url: https://rvm.io/mpapis.asc
+    dest: "{{ tmp_files_dir }}/mpapis.asc"
+    force: yes
+  register: new_rvm_key_downloaded
+
+- name: Add RVM gpg key
+  shell: "gpg --import {{ tmp_files_dir }}/mpapis.asc"
+  when: new_rvm_key_downloaded.changed
+
+- name: Check RVM status
+  stat:
+    path: "{{ rvm_path }}"
+  register: rvm_dir
+
+- name: Install RVM
+  shell: "curl -sSL {{ rvm_install_url }} | bash -s {{ rvm_version }} --path {{ rvm_path }} {{ rvm_install_flags }}"
+  when: rvm_dir.stat.isdir is not defined
+
+- name: Configure RVM
+  shell: "{{ rvm_exec }} autolibs {{ rvm_autolib_mode }}"
+  when: rvm_dir.stat.isdir is not defined
+
+- name: Update RVM
+  shell: "{{ rvm_exec }} get {{ rvm_version }} && {{ rvm_exec }} reload"
+  when: rvm_dir.stat.isdir is defined and rvm_dir.stat.isdir
+  changed_when: false
+
+- name: Install Ruby
+  shell: "{{ rvm_exec }} install ruby-{{ item }}"
+  register: ruby_install_result
+  changed_when: "'Already installed' not in ruby_install_result.stderr"
+  with_items: "{{ rvm_ruby_version }}"
+
+- name: Use Ruby version
+  shell: "source {{ rvm_init_script }} && rvm use ruby-{{ item }} --default"
+  args:
+    executable: /bin/bash
+  changed_when: false
+  with_items: "{{ rvm_ruby_version }}"
+
+- name: Install Ruby Gems
+  shell: "{{ rvm_exec }} rubygems {{ item }}"
+  register: rubygems_install_result
+  changed_when: "'already available' not in rubygems_install_result.stdout and 'is newer than' not in rubygems_install_result.stdout"
+  with_items: current
+
+- name: Get bundler version
+  shell: "source {{ rvm_init_script }} && echo `bundler -v 2>/dev/null || echo 'None'` | cut -d ' ' -f3-"
+  args:
+    executable: /bin/bash
+  register: bundler_version
+  changed_when: false
+
+- name: Install Bundler
+  shell: "source {{ rvm_init_script }} && gem install bundler"
+  args:
+    executable: /bin/bash
+  register: bundler_install
+  changed_when: "'Successfully installed bundler-{{ bundler_version.stdout }}' not in bundler_install.stdout"

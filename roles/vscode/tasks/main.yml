@@ -1,0 +1,11 @@
+---
+
+- name: Install jq
+  apt: 
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - jq
+
+- include: vscode.yml
+  become: no

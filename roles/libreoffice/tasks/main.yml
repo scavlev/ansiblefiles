@@ -1,0 +1,21 @@
+---
+
+- name: Add LibreOffice apt key
+  apt_key: 
+    keyserver: "{{ ubuntu_keyserver }}"
+    id: 1378B444
+    state: present
+
+- name: Add LibreOffice repo
+  apt_repository: 
+    repo: "deb http://ppa.launchpad.net/libreoffice/ppa/ubuntu {{ ubuntu_codename }} main"
+    state: present
+    update_cache: yes
+
+- name: Install LibreOffice packages
+  apt: 
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - libreoffice
+    - libreoffice-style-breeze

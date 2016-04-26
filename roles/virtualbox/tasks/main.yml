@@ -1,0 +1,22 @@
+---
+
+- name: Add VirtualBox apt key
+  apt_key:
+    url: https://www.virtualbox.org/download/oracle_vbox.asc
+    state: present
+
+- name: Add VirtualBox repo
+  apt_repository:
+    repo: "deb http://download.virtualbox.org/virtualbox/debian {{ ubuntu_codename }} contrib"
+    state: present
+    update_cache: yes
+
+- name: Install VirtualBox
+  apt:
+    name: "virtualbox-{{ virtualbox_version }}"
+    state: latest
+
+- name: Install dkms
+  apt:
+    name: dkms
+    state: latest

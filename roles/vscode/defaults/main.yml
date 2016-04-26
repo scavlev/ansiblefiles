@@ -1,0 +1,12 @@
+---
+
+vscode_download_link: http://go.microsoft.com/fwlink/?LinkID=620884
+
+vscode_target_dir: "{{ tools_dir }}/vscode"
+vscode_download_dir: "{{ tmp_files_dir }}/vscode"
+
+vscode_config_dir: ~/.config/Code
+vscode_settings_dir: "{{ vscode_config_dir }}/User"
+
+vscode_extraction_dir: "{{ tmp_files_dir }}/vscode/extracted"
+vscode_extracted_folder_name: "{{ vscode_extraction_dir }}/VSCode-linux-x64"

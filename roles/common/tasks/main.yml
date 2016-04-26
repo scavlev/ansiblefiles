@@ -1,0 +1,28 @@
+---
+
+- name: Perform apt dist upgrade
+  apt:
+    update_cache: yes
+    upgrade: dist
+    cache_valid_time: 3600
+
+- name: Install essential libs
+  apt:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - curl
+    - wget
+    - jq
+    - software-properties-common
+    - build-essential
+    - httpie
+
+- name: Symlink itself to ~/.ansiblefiles
+  file:
+    src: "{{ playbook_dir }}"
+    dest: "{{ ansiblefiles_location }}"
+    state: link
+    force: yes
+  become: no
+  when: "playbook_dir != ansiblefiles_location"

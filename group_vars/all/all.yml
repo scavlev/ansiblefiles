@@ -1,0 +1,12 @@
+---
+
+ansiblefiles_location: "{{ lookup('env', 'HOME') }}/.ansiblefiles"
+tmp_files_dir: "{{ ansiblefiles_location }}/tmp"
+tools_dir: ~/dev/tools
+
+ubuntu_keyserver: hkp://keyserver.ubuntu.com:80
+
+ubuntu_name: "{{ lookup('pipe','lsb_release -si')}}"
+ubuntu_codename: "{{ lookup('pipe','echo \"UbuntuDebian\" | grep -q `lsb_release -si` && lsb_release -sc || lsb_release -usc')}}"
+
+username: "{{ lookup('env', 'USER') }}"

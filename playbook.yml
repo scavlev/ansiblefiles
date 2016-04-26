@@ -1,0 +1,20 @@
+---
+
+- hosts: localhost
+  become: yes
+  roles:
+    - { role: common, tags: "common" }
+    - { role: chrome, tags: "chrome" }
+    - { role: git, tags: "git" }
+    - { role: python, tags: "python" }
+    - { role: shell, tags: "shell" }
+    - { role: docker, tags: "docker" }
+    - { role: jdk, tags: "jdk" }
+    - { role: gradle, tags: "gradle" }
+    - { role: nodejs, tags: "nodejs", type: "repo" }
+    - { role: ruby, tags: "ruby", type: "rvm" }
+    - { role: atom, tags: "atom" }
+    - { role: sublime, tags: "sublime" }
+    - { role: vscode, tags: "vscode" }
+    - { role: libreoffice, tags: "libreoffice" }
+    - { role: virtualbox, tags: "virtualbox" }

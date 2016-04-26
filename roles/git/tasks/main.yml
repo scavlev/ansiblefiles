@@ -1,0 +1,38 @@
+---
+
+- name: Add Git apt key
+  apt_key: 
+    keyserver: "{{ ubuntu_keyserver }}"
+    id: E1DF1F24 
+    state: present
+
+- name: Add Git repo
+  apt_repository: 
+    repo: "deb http://ppa.launchpad.net/git-core/ppa/ubuntu {{ ubuntu_codename }} main"
+    state: present
+    update_cache: yes
+
+- name: Install Git
+  apt: 
+    name: git 
+    state: latest
+
+- name: Stat .gitconfig
+  stat:  
+    path: ~/.gitconfig
+  become: no
+  register: stat_gitconfig
+
+- name: Backup existing .gitconfig
+  command: mv ~/.gitconfig ~/.gitconfig.bak
+  args:
+    creates: ~/.gitconfig.bak
+  become: no
+  when: stat_gitconfig.stat.islnk is defined and not stat_gitconfig.stat.islnk
+
+- name: Symlink .gitconfig
+  file:
+    src: "{{ ansiblefiles_location }}/roles/git/files/gitconfig"
+    dest: ~/.gitconfig
+    state: link
+  become: no

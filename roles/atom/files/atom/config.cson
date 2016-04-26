@@ -1,0 +1,25 @@
+"*":
+  "atom-terminal": {}
+  core: {}
+  editor:
+    invisibles:
+      cr: " "
+      eol: " "
+    preferredLineLength: 140
+    showIndentGuide: true
+    showInvisibles: true
+  linter: {}
+  react:
+    enabledForAllJavascriptFiles: true
+  "terminal-plus":
+    core: {}
+    style: {}
+  welcome:
+    showOnStartup: false
+  whitespace: {}
+".coffee.jsx.source":
+  editor:
+    preferredLineLength: 140
+".js.jsx.source":
+  editor:
+    preferredLineLength: 140

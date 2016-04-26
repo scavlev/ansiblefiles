@@ -1,0 +1,19 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Ansible",
+		"Babel",
+		"Diffy",
+		"ES6-Toolkit",
+		"Oceanic Next Color Scheme",
+		"Package Control",
+		"SublimeLinter",
+		"SublimeLinter-contrib-eslint",
+		"Terminal",
+		"Theme - SoDaReloaded"
+	]
+}

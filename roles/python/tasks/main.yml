@@ -1,0 +1,33 @@
+---
+
+- name: Add Python apt key
+  apt_key: 
+    keyserver: "{{ ubuntu_keyserver }}"
+    id: DB82666C 
+    state: present
+
+- name: Add Python repo
+  apt_repository: 
+    repo: "deb http://ppa.launchpad.net/fkrull/deadsnakes/ubuntu {{ ubuntu_codename }} main"
+    state: present
+    update_cache: yes
+
+- name: Install Python packages
+  apt: 
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - python2.7
+    - python3.5
+    - python-setuptools
+
+- name: Download pip installer
+  get_url:
+    url: https://bootstrap.pypa.io/get-pip.py
+    dest: "{{ pip_install_script }}"
+    force: yes
+  register: new_pip_downloaded
+
+- name: Install pip
+  shell: "python {{ pip_install_script }}"
+  when: new_pip_downloaded.changed

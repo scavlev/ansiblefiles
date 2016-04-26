@@ -1,0 +1,21 @@
+---
+
+- name: Stat .bashrc
+  stat:  
+    path: ~/.bashrc
+  become: no
+  register: stat_bashrc
+
+- name: Backup existing .bashrc
+  command: mv ~/.bashrc ~/.bashrc.bak
+  args:
+    creates: ~/.bashrc.bak
+  become: no
+  when: stat_bashrc.stat.islnk is defined and not stat_bashrc.stat.islnk
+
+- name: Symlink .bashrc
+  file:
+    src: "{{ ansiblefiles_location }}/roles/shell/files/bashrc"
+    dest: ~/.bashrc
+    state: link
+  become: no

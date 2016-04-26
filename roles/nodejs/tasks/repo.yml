@@ -1,0 +1,21 @@
+---
+
+- name: Add Nodesource apt key
+  apt_key:
+    url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
+    state: present
+
+- name: Add Nodesource repo
+  apt_repository:
+    repo: "deb https://deb.nodesource.com/node_5.x {{ ubuntu_codename }} main"
+    state: present
+    update_cache: yes
+
+- name: Install Node.js
+  apt:
+    name: nodejs
+    state: latest
+
+- name: Install latest global npm packages
+  shell: "npm i -g {{ item }}"
+  with_items: "{{ npm_packages }}"

@@ -1,0 +1,7 @@
+[include]
+  path = ~/.gitconfig.private
+
+[push]
+  default = simple
+[pull]
+	rebase = true
