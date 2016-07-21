@@ -11,10 +11,10 @@
     - { role: docker, tags: "docker" }
     - { role: jdk, tags: "jdk" }
     - { role: gradle, tags: "gradle" }
+    - { role: go, tags: "go" }
     - { role: nodejs, tags: "nodejs", type: "repo" }
     - { role: ruby, tags: "ruby", type: "rvm" }
     - { role: atom, tags: "atom" }
     - { role: sublime, tags: "sublime" }
-    - { role: vscode, tags: "vscode" }
     - { role: libreoffice, tags: "libreoffice" }
     - { role: virtualbox, tags: "virtualbox" }

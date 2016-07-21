@@ -2,7 +2,7 @@
 
 - name: Add VirtualBox apt key
   apt_key:
-    url: https://www.virtualbox.org/download/oracle_vbox.asc
+    url: https://www.virtualbox.org/download/oracle_vbox_2016.asc
     state: present
 
 - name: Add VirtualBox repo
