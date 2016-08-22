@@ -1,23 +1,30 @@
 ---
 
 - name: Add Gradle apt key
-  apt_key: 
+  apt_key:
     keyserver: "{{ ubuntu_keyserver }}"
     id: 9D06AF36
     state: present
 
 - name: Add Gradle repo
-  apt_repository: 
+  apt_repository:
     repo: "deb http://ppa.launchpad.net/cwchien/gradle/ubuntu {{ ubuntu_codename }} main"
     state: present
     update_cache: yes
 
 - name: Install Gradle
-  apt: 
+  apt:
     name: "gradle-{{ gradle_version }}"
     state: latest
 
 - name: Use installed Gradle version
-  alternatives: 
+  alternatives:
     name: gradle
     path: "/usr/lib/gradle/{{ gradle_version }}/bin/gradle"
+
+- name: Symlink installed gradle as default
+  file:
+    src: "/usr/lib/gradle/{{ gradle_version }}"
+    dest: "/usr/lib/gradle/default"
+    state: link
+    force: yes
