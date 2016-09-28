@@ -1,19 +1,25 @@
 ---
 
 - name: Add Python apt key
-  apt_key: 
+  apt_key:
     keyserver: "{{ ubuntu_keyserver }}"
-    id: DB82666C 
+    id: DB82666C
     state: present
 
 - name: Add Python repo
-  apt_repository: 
+  apt_repository:
     repo: "deb http://ppa.launchpad.net/fkrull/deadsnakes/ubuntu {{ ubuntu_codename }} main"
     state: present
     update_cache: yes
 
+- name: Add Python 2.7 repo
+  apt_repository:
+    repo: "deb http://ppa.launchpad.net/fkrull/deadsnakes-python2.7/ubuntu {{ ubuntu_codename }} main"
+    state: present
+    update_cache: yes
+
 - name: Install Python packages
-  apt: 
+  apt:
     name: "{{ item }}"
     state: latest
   with_items:
