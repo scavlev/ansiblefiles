@@ -1,0 +1,5 @@
+---
+
+- name: Install Nylas N1
+  apt:
+    deb: https://github.com/nylas/N1/releases/download/{{ n1_version }}/N1-{{ n1_version }}.deb
