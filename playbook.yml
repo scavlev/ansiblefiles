@@ -10,6 +10,7 @@
     - { role: python, tags: "python" }
     - { role: shell, tags: "shell" }
     - { role: docker, tags: "docker" }
+    - { role: kubernetes, tags: "kubernetes" }
     - { role: jdk, tags: "jdk" }
     - { role: gradle, tags: "gradle" }
     - { role: go, tags: "go" }
