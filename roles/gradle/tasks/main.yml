@@ -9,6 +9,7 @@
 - name: Add Gradle repo
   apt_repository:
     repo: "deb http://ppa.launchpad.net/cwchien/gradle/ubuntu {{ ubuntu_codename }} main"
+    mode: 644
     state: present
     update_cache: yes
 

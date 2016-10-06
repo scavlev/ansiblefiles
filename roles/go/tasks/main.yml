@@ -1,18 +1,19 @@
 ---
 
 - name: Add Go apt key
-  apt_key: 
+  apt_key:
     keyserver: "{{ ubuntu_keyserver }}"
-    id: 7635B973 
+    id: 7635B973
     state: present
 
 - name: Add Go repo
-  apt_repository: 
+  apt_repository:
     repo: "deb http://ppa.launchpad.net/ubuntu-lxc/lxd-stable/ubuntu {{ ubuntu_codename }} main"
+    mode: 644
     state: present
     update_cache: yes
 
 - name: Install Go
-  apt: 
-    name: golang 
+  apt:
+    name: golang
     state: latest

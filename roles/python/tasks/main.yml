@@ -9,6 +9,7 @@
 - name: Add Python repo
   apt_repository:
     repo: "deb http://ppa.launchpad.net/fkrull/deadsnakes/ubuntu {{ ubuntu_codename }} main"
+    mode: 644
     state: present
     update_cache: yes
 

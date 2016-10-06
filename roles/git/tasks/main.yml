@@ -1,24 +1,25 @@
 ---
 
 - name: Add Git apt key
-  apt_key: 
+  apt_key:
     keyserver: "{{ ubuntu_keyserver }}"
-    id: E1DF1F24 
+    id: E1DF1F24
     state: present
 
 - name: Add Git repo
-  apt_repository: 
+  apt_repository:
     repo: "deb http://ppa.launchpad.net/git-core/ppa/ubuntu {{ ubuntu_codename }} main"
+    mode: 644
     state: present
     update_cache: yes
 
 - name: Install Git
-  apt: 
-    name: git 
+  apt:
+    name: git
     state: latest
 
 - name: Stat .gitconfig
-  stat:  
+  stat:
     path: ~/.gitconfig
   become: no
   register: stat_gitconfig

@@ -1,19 +1,20 @@
 ---
 
 - name: Add Docker apt key
-  apt_key: 
+  apt_key:
     keyserver: hkp://pgp.mit.edu:80
-    id: 2C52609D 
+    id: 2C52609D
     state: present
 
 - name: Add Docker repo
-  apt_repository: 
+  apt_repository:
     repo: "deb https://apt.dockerproject.org/repo ubuntu-{{ ubuntu_codename }} main"
+    mode: 644
     state: present
     update_cache: yes
 
 - name: Install docker dependencies
-  apt: 
+  apt:
     name: "{{ item }}"
     state: latest
   with_items:
@@ -23,8 +24,8 @@
     - cgroup-lite
 
 - name: Install Docker
-  apt: 
-    name: docker-engine 
+  apt:
+    name: docker-engine
     state: latest
 
 - name: Add user to docker group
@@ -36,9 +37,9 @@
     - "{{ username }}"
 
 - name: Update ufw to allow forwarding
-  lineinfile: 
+  lineinfile:
     dest: /etc/default/ufw
-    regexp: DEFAULT_FORWARD_POLICY= 
+    regexp: DEFAULT_FORWARD_POLICY=
     line: DEFAULT_FORWARD_POLICY="ACCEPT"
 
 - name: Reload ufw

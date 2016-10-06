@@ -1,7 +1,7 @@
 ---
 
 - name: Add Sublime Text apt key
-  apt_key: 
+  apt_key:
     keyserver: "{{ ubuntu_keyserver }}"
     id: EEA14886
     state: present
@@ -9,6 +9,7 @@
 - name: Add Sublime Text repo
   apt_repository:
     repo: "deb http://ppa.launchpad.net/webupd8team/sublime-text-3/ubuntu {{ ubuntu_codename }} main"
+    mode: 644
     state: present
     update_cache: yes
 
@@ -18,7 +19,7 @@
     state: latest
 
 - name: Create required Sublime directories
-  file: 
+  file:
     path: "{{ sublime_config_dir }}/{{ item }}"
     state: directory
   become: no

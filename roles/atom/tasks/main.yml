@@ -9,11 +9,12 @@
 - name: Add Atom repo
   apt_repository:
     repo: "deb http://ppa.launchpad.net/webupd8team/atom/ubuntu {{ ubuntu_codename }} main"
+    mode: 644
     state: present
     update_cache: yes
 
 - name: Stat Atom settings
-  stat:  
+  stat:
     path: ~/.atom
   become: no
   register: stat_atom

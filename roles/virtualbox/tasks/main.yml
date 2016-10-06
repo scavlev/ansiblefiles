@@ -8,6 +8,7 @@
 - name: Add VirtualBox repo
   apt_repository:
     repo: "deb http://download.virtualbox.org/virtualbox/debian {{ ubuntu_codename }} contrib"
+    mode: 644
     state: present
     update_cache: yes
 

@@ -9,6 +9,7 @@
 - name: Add webupd8 repo
   apt_repository:
     repo: "deb http://ppa.launchpad.net/webupd8team/java/ubuntu {{ ubuntu_codename }} main"
+    mode: 644
     state: present
     update_cache: yes
 

@@ -3,12 +3,13 @@
 - name: Add Ruby apt key
   apt_key:
     keyserver: "{{ ubuntu_keyserver }}"
-    id: C3173AA6 
+    id: C3173AA6
     state: present
 
 - name: Add Ruby repo
   apt_repository:
     repo: "deb http://ppa.launchpad.net/brightbox/ruby-ng/ubuntu {{ ubuntu_codename }} main"
+    mode: 644
     state: present
     update_cache: yes
 

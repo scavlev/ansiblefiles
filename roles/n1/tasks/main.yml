@@ -1,5 +1,19 @@
 ---
 
+- name: Add Nylas apt key
+  apt_key:
+    keyserver: "{{ ubuntu_keyserver }}"
+    id: 7D0ACF4A
+    state: present
+
+- name: Add Nylas repo
+  apt_repository:
+    repo: "deb [arch=i386,amd64] http://apt.nylas.com/ubuntu vivid main"
+    mode: 644
+    state: present
+    update_cache: yes
+
 - name: Install Nylas N1
   apt:
-    deb: https://github.com/nylas/N1/releases/download/{{ n1_version }}/N1-{{ n1_version }}.deb
+    name: nylas
+    state: latest
