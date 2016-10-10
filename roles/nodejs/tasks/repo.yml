@@ -18,5 +18,8 @@
     state: latest
 
 - name: Install latest global npm packages
-  shell: "npm i -g {{ item }}"
+  npm:
+    name: "{{ item }}"
+    global: yes
+    state: latest
   with_items: "{{ npm_packages }}"
