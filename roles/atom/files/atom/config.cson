@@ -1,6 +1,7 @@
 "*":
   "atom-terminal": {}
-  core: {}
+  core:
+    telemetryConsent: "no"
   editor:
     invisibles:
       cr: " "
