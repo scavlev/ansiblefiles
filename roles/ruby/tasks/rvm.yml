@@ -60,4 +60,4 @@
   args:
     executable: /bin/bash
   register: bundler_install
-  changed_when: "'Successfully installed bundler-{{ bundler_version.stdout }}' not in bundler_install.stdout"
+  changed_when: "bundler_install.stdout.find('Successfully installed bundler-' ~ bundler_version.stdout) == 1"
