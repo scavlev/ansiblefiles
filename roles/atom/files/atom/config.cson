@@ -9,6 +9,8 @@
     preferredLineLength: 140
     showIndentGuide: true
     showInvisibles: true
+  "exception-reporting":
+    userId: "40e62b3e-6aba-4180-b274-77fa8c5df5fd"
   linter: {}
   react:
     enabledForAllJavascriptFiles: true
