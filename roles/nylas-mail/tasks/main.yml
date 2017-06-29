@@ -13,7 +13,7 @@
     state: present
     update_cache: yes
 
-- name: Install Nylas N1
+- name: Install Nylas Mail
   apt:
-    name: nylas
+    name: nylas-mail
     state: latest

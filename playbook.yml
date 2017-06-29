@@ -18,6 +18,6 @@
     - { role: ruby, tags: "ruby", type: "rvm" }
     - { role: atom, tags: "atom" }
     - { role: sublime, tags: "sublime" }
-    - { role: n1, tags: "n1" }
+    - { role: nylas-mail, tags: "nylas-mail" }
     - { role: libreoffice, tags: "libreoffice" }
     - { role: virtualbox, tags: "virtualbox" }
