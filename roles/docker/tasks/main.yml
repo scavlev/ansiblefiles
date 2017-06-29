@@ -3,29 +3,19 @@
 - name: Add Docker apt key
   apt_key:
     keyserver: hkp://pgp.mit.edu:80
-    id: 2C52609D
+    id: 0EBFCD88
     state: present
 
 - name: Add Docker repo
   apt_repository:
-    repo: "deb https://apt.dockerproject.org/repo ubuntu-{{ ubuntu_codename }} main"
+    repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ubuntu_codename }} stable"
     mode: 644
     state: present
     update_cache: yes
 
-- name: Install docker dependencies
-  apt:
-    name: "{{ item }}"
-    state: latest
-  with_items:
-    - python-pycurl
-    - apparmor
-    - aufs-tools
-    - cgroup-lite
-
 - name: Install Docker
   apt:
-    name: docker-engine
+    name: docker-ce
     state: latest
 
 - name: Add user to docker group
