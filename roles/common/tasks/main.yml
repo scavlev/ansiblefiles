@@ -10,13 +10,7 @@
   apt:
     name: "{{ item }}"
     state: latest
-  with_items:
-    - curl
-    - wget
-    - jq
-    - software-properties-common
-    - build-essential
-    - httpie
+  with_items: "{{ apt_packages }}"
 
 - name: Symlink itself to ~/.ansiblefiles
   file:
