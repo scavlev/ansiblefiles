@@ -18,6 +18,5 @@
     - { role: ruby, tags: "ruby", type: "rvm" }
     - { role: atom, tags: "atom" }
     - { role: sublime, tags: "sublime" }
-    - { role: nylas-mail, tags: "nylas-mail" }
     - { role: libreoffice, tags: "libreoffice" }
     - { role: virtualbox, tags: "virtualbox" }
