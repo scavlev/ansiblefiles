@@ -20,4 +20,5 @@
     - { role: sublime, tags: "sublime" }
     - { role: pencil, tags: "pencil" }
     - { role: libreoffice, tags: "libreoffice" }
+    - { role: elixir, tags: "elixir" }
     - { role: virtualbox, tags: "virtualbox" }
