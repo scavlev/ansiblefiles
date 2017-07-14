@@ -19,4 +19,10 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 function ansiblefiles() { cd ~/.ansiblefiles && ./ansiblefiles.sh "$@" || true && cd $OLDPWD ;}
 
-alias vscode="setsid ~/dev/tools/vscode/code > /dev/null 2>&1"
+# Docker
+# Stop all containers
+alias dks="docker kill $(docker ps -q) $@"
+# Delete all containers
+alias dkrm="docker rm $(docker ps -a -q) $@"
+# Delete all images
+alias dkrmi="docker rmi $(docker images -q) $@"
