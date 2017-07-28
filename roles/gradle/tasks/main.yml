@@ -15,17 +15,5 @@
 
 - name: Install Gradle
   apt:
-    name: "gradle-{{ gradle_version }}"
+    name: "gradle"
     state: latest
-
-- name: Use installed Gradle version
-  alternatives:
-    name: gradle
-    path: "/usr/lib/gradle/{{ gradle_version }}/bin/gradle"
-
-- name: Symlink installed gradle as default
-  file:
-    src: "/usr/lib/gradle/{{ gradle_version }}"
-    dest: "/usr/lib/gradle/default"
-    state: link
-    force: yes
