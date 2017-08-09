@@ -6,3 +6,5 @@
 
 - include: repo.yml
   when: type == 'repo'
+
+- include: yarn.yml
