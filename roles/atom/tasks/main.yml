@@ -40,16 +40,6 @@
 
 - name: Install Atom packages
   shell: "apm install {{ item }}"
-  with_items:
-    - linter-eslint
-    - language-babel
-    - terminal-fusion
-    - editorconfig
-    - sort-lines
-    - prettier-atom
-    - atom-beautify
-    - highlight-selected
-    - autocomplete-paths
-    - color-picker
+  with_items: "{{ atom_packages }}"
   become: no
   changed_when: false

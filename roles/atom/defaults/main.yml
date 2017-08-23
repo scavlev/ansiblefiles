@@ -1,0 +1,13 @@
+---
+
+atom_packages:
+  - linter-eslint
+  - language-babel
+  - platformio-ide-terminal
+  - editorconfig
+  - sort-lines
+  - prettier-atom
+  - atom-beautify
+  - highlight-selected
+  - autocomplete-paths
+  - color-picker
