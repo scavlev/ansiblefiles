@@ -10,4 +10,11 @@ atom_packages:
   - atom-beautify
   - highlight-selected
   - autocomplete-paths
+  - autocomplete-modules
+  - autoclose-html
+  - local-history
+  - hyperclick
+  - js-hyperclick
   - color-picker
+  - tree-view-copy-relative-path
+  - pigments
