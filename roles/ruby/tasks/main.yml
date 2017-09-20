@@ -1,8 +1,8 @@
 ---
 
-- include: rvm.yml
+- include_tasks: rvm.yml
   become: no
   when: type == 'rvm'
 
-- include: repo.yml
+- include_tasks: repo.yml
   when: type == 'repo'

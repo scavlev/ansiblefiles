@@ -1,10 +1,10 @@
 ---
 
-- include: nvm.yml
+- include_tasks: nvm.yml
   become: no
   when: type == 'nvm'
 
-- include: repo.yml
+- include_tasks: repo.yml
   when: type == 'repo'
 
-- include: yarn.yml
+- include_tasks: yarn.yml

@@ -1,4 +1,4 @@
 ---
 
-- include: bash.yml
-- include: zsh.yml
+- import_tasks: bash.yml
+- import_tasks: zsh.yml
