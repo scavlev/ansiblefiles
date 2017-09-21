@@ -7,3 +7,4 @@ apt_packages:
   - software-properties-common
   - build-essential
   - httpie
+  - htop
