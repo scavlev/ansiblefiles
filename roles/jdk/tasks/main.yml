@@ -17,7 +17,7 @@
   shell: echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections
   changed_when: false
 
-- name: Install Java8
+- name: Install Java9
   apt:
-    name: oracle-java8-installer
+    name: oracle-java9-installer
     state: latest
