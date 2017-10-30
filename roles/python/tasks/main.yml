@@ -3,12 +3,12 @@
 - name: Add Python apt key
   apt_key:
     keyserver: "{{ ubuntu_keyserver }}"
-    id: DB82666C
+    id: 6A755776
     state: present
 
 - name: Add Python repo
   apt_repository:
-    repo: "deb http://ppa.launchpad.net/fkrull/deadsnakes/ubuntu {{ ubuntu_codename }} main"
+    repo: "deb http://ppa.launchpad.net/deadsnakes/ppa/ubuntu {{ ubuntu_codename }} main"
     mode: 644
     state: present
     update_cache: yes
