@@ -17,12 +17,12 @@ export PATH="$PATH:$HOME/.rvm/bin"
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
 
-function ansiblefiles() { cd ~/.ansiblefiles && ./ansiblefiles.sh "$@" || true && cd $OLDPWD ;}
+ansiblefiles() { cd ~/.ansiblefiles && ./ansiblefiles.sh "$@" || true && cd $OLDPWD ;}
 
 # Docker
 # Stop all containers
-alias dks="docker kill $(docker ps -q) $@"
+dks() { docker kill $(docker ps -q) "$@"; }
 # Delete all containers
-alias dkrm="docker rm $(docker ps -a -q) $@"
+dkrm() { docker rm $(docker ps -a -q) "$@"; }
 # Delete all images
-alias dkrmi="docker rmi $(docker images -q) $@"
+dkrmi() { docker rmi $(docker images -q) "$@"; }
