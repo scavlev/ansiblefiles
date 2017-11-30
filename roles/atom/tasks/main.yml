@@ -1,18 +1,5 @@
 ---
 
-- name: Add Atom apt key
-  apt_key:
-    keyserver: "{{ ubuntu_keyserver }}"
-    id: EEA14886
-    state: present
-
-- name: Add Atom repo
-  apt_repository:
-    repo: "deb http://ppa.launchpad.net/webupd8team/atom/ubuntu {{ ubuntu_codename }} main"
-    mode: 644
-    state: present
-    update_cache: yes
-
 - name: Stat Atom settings
   stat:
     path: ~/.atom
@@ -35,8 +22,7 @@
 
 - name: Install Atom
   apt:
-    name: atom
-    state: latest
+    deb: https://atom.io/download/deb
 
 - name: Install Atom packages
   shell: "apm install {{ item }}"

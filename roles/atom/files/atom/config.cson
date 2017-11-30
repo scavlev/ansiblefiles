@@ -12,8 +12,7 @@
   "exception-reporting":
     userId: "40e62b3e-6aba-4180-b274-77fa8c5df5fd"
   linter: {}
-  "linter-ui-default":
-    panelHeight: 69
+  "linter-ui-default": {}
   react:
     enabledForAllJavascriptFiles: true
   "terminal-plus":
