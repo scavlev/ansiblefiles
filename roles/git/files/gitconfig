@@ -5,3 +5,5 @@
   default = simple
 [pull]
   rebase = true
+[core]
+	autocrlf = input

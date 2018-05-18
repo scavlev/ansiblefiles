@@ -2,7 +2,7 @@
 	"bold_folder_labels": true,
 	"color_scheme": "Packages/User/SublimeLinter/Oceanic Next (SL).tmTheme",
 	"font_face": "Monaco",
-	"font_size": 12,
+	"font_size": 9,
 	"ignored_packages":
 	[
 		"Vintage"
