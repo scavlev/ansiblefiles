@@ -15,8 +15,5 @@
 
 - name: Install LibreOffice packages
   apt:
-    name: "{{ item }}"
+    name: "{{ libreoffice_packages }}"
     state: latest
-  with_items:
-    - libreoffice
-    - libreoffice-style-breeze

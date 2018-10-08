@@ -15,12 +15,8 @@
 
 - name: Install Python packages
   apt:
-    name: "{{ item }}"
+    name: "{{ python_packages }}"
     state: latest
-  with_items:
-    - python2.7
-    - python3.5
-    - python-setuptools
 
 - name: Download pip installer
   get_url:

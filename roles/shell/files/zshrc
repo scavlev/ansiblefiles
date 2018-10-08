@@ -5,7 +5,7 @@ ZSH_THEME="robbyrussell"
 
 DISABLE_UPDATE_PROMPT="true"
 DISABLE_AUTO_UPDATE="true"
-plugins=(git)
+plugins=(git kubectl)
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -17,6 +17,8 @@ export PATH="$PATH:$HOME/.rvm/bin"
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
 
+alias k="kubectl"
+
 ansiblefiles() { cd ~/.ansiblefiles && ./ansiblefiles.sh "$@" || true && cd $OLDPWD ;}
 
 # Docker
@@ -26,3 +28,7 @@ dks() { docker kill $(docker ps -q) "$@"; }
 dkrm() { docker rm $(docker ps -a -q) "$@"; }
 # Delete all images
 dkrmi() { docker rmi $(docker images -q) "$@"; }
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/scavlev/.sdkman"
+[[ -s "/home/scavlev/.sdkman/bin/sdkman-init.sh" ]] && source "/home/scavlev/.sdkman/bin/sdkman-init.sh"

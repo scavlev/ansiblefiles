@@ -1,7 +1,9 @@
 ---
 
 - include_tasks: rvm.yml
-  become: no
+  args:
+    apply:
+      become: no
   when: type == 'rvm'
 
 - include_tasks: repo.yml

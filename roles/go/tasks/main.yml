@@ -8,7 +8,7 @@
 
 - name: Add Go repo
   apt_repository:
-    repo: "deb http://ppa.launchpad.net/longsleep/golang-backports/ubuntu {{ ubuntu_codename }} main"
+    repo: "deb http://ppa.launchpad.net/longsleep/golang-backports/ubuntu xenial main"
     mode: 644
     state: present
     update_cache: yes

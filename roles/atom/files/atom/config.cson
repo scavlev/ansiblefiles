@@ -1,30 +1,7 @@
 "*":
-  "atom-terminal": {}
   core:
     telemetryConsent: "no"
-  editor:
-    invisibles:
-      cr: " "
-      eol: " "
-    preferredLineLength: 140
-    showIndentGuide: true
-    showInvisibles: true
   "exception-reporting":
-    userId: "40e62b3e-6aba-4180-b274-77fa8c5df5fd"
-  linter: {}
-  "linter-ui-default":
-    panelHeight: 69
-  react:
-    enabledForAllJavascriptFiles: true
-  "terminal-plus":
-    core: {}
-    style: {}
+    userId: "3f67d90e-6b1c-44f5-9d15-f622d7e78aed"
   welcome:
     showOnStartup: false
-  whitespace: {}
-".coffee.jsx.source":
-  editor:
-    preferredLineLength: 140
-".js.jsx.source":
-  editor:
-    preferredLineLength: 140

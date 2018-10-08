@@ -1,3 +1,7 @@
 ---
 
 pip_install_script: "{{ tmp_files_dir }}/get-pip.py"
+python_packages:
+  - python2.7
+  - python3.5
+  - python-setuptools

@@ -8,9 +8,8 @@
 
 - name: Install essential libs
   apt:
-    name: "{{ item }}"
+    name: "{{ apt_packages }}"
     state: latest
-  with_items: "{{ apt_packages }}"
 
 - name: Symlink itself to ~/.ansiblefiles
   file:

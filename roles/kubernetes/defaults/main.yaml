@@ -1,0 +1,7 @@
+---
+
+kube_packages:
+  - kubelet
+  - kubeadm
+  - kubectl
+  - kubernetes-cni

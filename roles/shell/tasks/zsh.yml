@@ -1,12 +1,9 @@
 ---
 
 - name: Install zsh libs
-  apt: 
-    name: "{{ item }}"
+  apt:
+    name: zsh
     state: latest
-  with_items:
-    - zsh
-    - wget
 
 - name: Clone Oh-My-Zsh repo
   git:
@@ -21,7 +18,7 @@
     shell: /bin/zsh
 
 - name: Stat .zshrc
-  stat:  
+  stat:
     path: ~/.zshrc
   become: no
   register: stat_zshrc

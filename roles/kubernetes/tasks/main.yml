@@ -7,17 +7,12 @@
 
 - name: Add Kubernetes repo
   apt_repository:
-    repo: "deb http://apt.kubernetes.io/ kubernetes-{{ ubuntu_codename }} main"
+    repo: "deb http://apt.kubernetes.io/ kubernetes-xenial main"
     mode: 644
     state: present
     update_cache: yes
 
 - name: Install Kubernetes
   apt:
-    name: "{{ item }}"
+    name: "{{ kube_packages }}"
     state: latest
-  with_items:
-    - kubelet
-    - kubeadm
-    - kubectl
-    - kubernetes-cni

@@ -3,3 +3,7 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/scavlev/.sdkman"
+[[ -s "/home/scavlev/.sdkman/bin/sdkman-init.sh" ]] && source "/home/scavlev/.sdkman/bin/sdkman-init.sh"
