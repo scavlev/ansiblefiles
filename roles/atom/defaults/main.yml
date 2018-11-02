@@ -1,7 +1,11 @@
 ---
 
 atom_packages:
+  - linter
   - linter-eslint
+  - linter-ui-default
+  - intentions
+  - busy-signal
   - language-babel
   - platformio-ide-terminal
   - editorconfig
