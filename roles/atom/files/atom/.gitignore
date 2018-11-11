@@ -8,3 +8,4 @@ dev
 .npm
 .node-gyp
 local-history
+nohup.out
