@@ -4,6 +4,7 @@
   apt:
     update_cache: yes
     upgrade: dist
+    autoremove: yes
     cache_valid_time: 3600
 
 - name: Install essential libs
