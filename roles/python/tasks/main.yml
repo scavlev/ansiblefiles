@@ -28,3 +28,7 @@
 - name: Install pip
   shell: "python {{ pip_install_script }}"
   when: new_pip_downloaded.changed
+
+- name: Install pip3
+  shell: "python3 {{ pip_install_script }}"
+  when: new_pip_downloaded.changed
