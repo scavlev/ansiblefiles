@@ -6,4 +6,4 @@
 [pull]
   rebase = true
 [core]
-	autocrlf = input
+  autocrlf = input
