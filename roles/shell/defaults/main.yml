@@ -1,4 +1,4 @@
 ---
 
-omzsh_git_repo: git://github.com/robbyrussell/oh-my-zsh.git
+omzsh_git_repo: https://github.com/robbyrussell/oh-my-zsh.git
 omzsh_target_dir: ~/.oh-my-zsh
