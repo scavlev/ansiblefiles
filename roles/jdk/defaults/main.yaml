@@ -1,0 +1,5 @@
+---
+
+visualvm_version: 1.4.2
+visualvm_url: https://github.com/visualvm/visualvm.src/releases/download/{{ visualvm_version }}/visualvm_{{ visualvm_version | regex_replace('\.') }}.zip
+visualvm_archive: "{{ tmp_files_dir }}/visualvm.zip"

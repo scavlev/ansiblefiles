@@ -1,23 +1,21 @@
 ---
 
-- name: Add webupd8 apt key
+- name: Add openjdk-r apt key
   apt_key:
     keyserver: "{{ ubuntu_keyserver }}"
-    id: EEA14886
+    id: 86F44E2A
     state: present
 
-- name: Add webupd8 repo
+- name: Add openjdk-r repo
   apt_repository:
-    repo: "deb http://ppa.launchpad.net/webupd8team/java/ubuntu {{ ubuntu_codename }} main"
+    repo: "deb http://ppa.launchpad.net/openjdk-r/ppa/ubuntu {{ ubuntu_codename }} main"
     mode: 644
     state: present
     update_cache: yes
 
-- name: Auto accept Oracle JDK license
-  shell: echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections
-  changed_when: false
-
-- name: Install Java9
+- name: Install Java 11
   apt:
-    name: oracle-java9-installer
+    name: openjdk-11-jdk
     state: latest
+
+- include_tasks: visualvm.yaml
