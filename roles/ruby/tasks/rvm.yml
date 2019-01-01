@@ -11,6 +11,10 @@
   shell: "gpg --import {{ tmp_files_dir }}/mpapis.asc"
   when: new_rvm_key_downloaded.changed
 
+- name: Import RVM gpg key
+  shell: "command curl -sSL https://rvm.io/mpapis.asc | gpg --import -"
+  changed_when: false
+
 - name: Check RVM status
   stat:
     path: "{{ rvm_path }}"
@@ -19,6 +23,8 @@
 - name: Install RVM
   shell: "curl -sSL {{ rvm_install_url }} | bash -s {{ rvm_version }} --path {{ rvm_path }} {{ rvm_install_flags }}"
   when: rvm_dir.stat.isdir is not defined
+  args:
+    warn: no
 
 - name: Configure RVM
   shell: "{{ rvm_exec }} autolibs {{ rvm_autolib_mode }}"
