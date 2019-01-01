@@ -20,3 +20,7 @@
     force: yes
   become: no
   when: "playbook_dir != ansiblefiles_location"
+
+- name: Increase inotify limit
+  shell: "echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p"
+  changed_when: false
