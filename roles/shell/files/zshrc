@@ -7,7 +7,7 @@ ZSH_THEME="robbyrussell"
 
 DISABLE_UPDATE_PROMPT="true"
 DISABLE_AUTO_UPDATE="true"
-plugins=(git kubectl)
+plugins=(git kubectl percol)
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
