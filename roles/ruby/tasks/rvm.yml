@@ -1,19 +1,26 @@
 ---
 
-- name: Download RVM gpg key
+- name: Download RVM mpapis gpg key
   get_url:
     url: https://rvm.io/mpapis.asc
     dest: "{{ tmp_files_dir }}/mpapis.asc"
     force: yes
-  register: new_rvm_key_downloaded
+  register: new_rvm_mpapis_key_downloaded
 
-- name: Add RVM gpg key
+- name: Add RVM mpapis gpg key
   shell: "gpg --import {{ tmp_files_dir }}/mpapis.asc"
-  when: new_rvm_key_downloaded.changed
+  when: new_rvm_mpapis_key_downloaded.changed
 
-- name: Import RVM gpg key
-  shell: "command curl -sSL https://rvm.io/mpapis.asc | gpg --import -"
-  changed_when: false
+- name: Download RVM pkuczynski gpg key
+  get_url:
+    url: https://rvm.io/pkuczynski.asc
+    dest: "{{ tmp_files_dir }}/pkuczynski.asc"
+    force: yes
+  register: new_rvm_pkuczynski_key_downloaded
+
+- name: Add RVM pkuczynski gpg key
+  shell: "gpg --import {{ tmp_files_dir }}/pkuczynski.asc"
+  when: new_rvm_pkuczynski_key_downloaded.changed
 
 - name: Check RVM status
   stat:
@@ -60,6 +67,13 @@
     executable: /bin/bash
   register: bundler_version
   changed_when: false
+
+- name: Update ruby gems
+  shell: "source {{ rvm_init_script }} && gem update --system"
+  args:
+    executable: /bin/bash
+  register: gems_update
+  changed_when: "gems_update.stdout.find('Latest version already installed. Done.') == 1"
 
 - name: Install Bundler
   shell: "source {{ rvm_init_script }} && gem install bundler"
