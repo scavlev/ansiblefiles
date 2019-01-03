@@ -16,3 +16,5 @@
   apt:
     name: "{{ kube_packages }}"
     state: latest
+
+- include_tasks: helm.yml

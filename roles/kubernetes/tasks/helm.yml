@@ -1,0 +1,7 @@
+---
+
+- name: Install helm
+  shell: curl https://raw.githubusercontent.com/helm/helm/master/scripts/get | bash
+  changed_when: false
+  args:
+    warn: no
