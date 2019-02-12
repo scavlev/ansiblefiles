@@ -33,4 +33,4 @@ dkrmi() { docker rmi $(docker images -q) "$@"; }
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/scavlev/.sdkman"
-[[ -s "/home/scavlev/.sdkman/bin/sdkman-init.sh" ]] && source "/home/scavlev/.sdkman/bin/sdkman-init.sh"
+[[ -s "~/.sdkman/bin/sdkman-init.sh" ]] && source "~/.sdkman/bin/sdkman-init.sh"
