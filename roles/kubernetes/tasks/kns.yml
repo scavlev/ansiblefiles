@@ -1,0 +1,7 @@
+---
+
+- name: Install kns
+  shell: curl https://raw.githubusercontent.com/blendle/kns/master/bin/kns -o /usr/local/bin/kns && chmod +x $_
+  changed_when: false
+  args:
+    warn: no

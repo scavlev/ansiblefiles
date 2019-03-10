@@ -18,3 +18,7 @@
     state: latest
 
 - include_tasks: helm.yml
+
+- include_tasks: kns.yml
+
+- include_tasks: ktx.yml
