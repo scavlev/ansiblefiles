@@ -12,6 +12,7 @@
     - { role: docker, tags: "docker" }
     - { role: kubernetes, tags: "kubernetes" }
     - { role: jdk, tags: "jdk" }
+    - { role: sdkman, tags: "sdkman" }
     - { role: gradle, tags: "gradle" }
     - { role: go, tags: "go" }
     - { role: nodejs, tags: "nodejs", type: "repo" }

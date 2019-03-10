@@ -5,10 +5,24 @@
     name: zsh
     state: latest
 
+- name: Clone fzf
+  git:
+    repo: "{{ fzf_git_repo }}"
+    dest: "{{ fzf_target_dir }}"
+    depth: 1
+    accept_hostkey: yes
+  become: no
+
+- name: Install fzf
+  command: "{{ fzf_target_dir }}/install --all"
+  changed_when: false
+  become: no
+
 - name: Clone Oh-My-Zsh repo
   git:
     repo: "{{ omzsh_git_repo }}"
     dest: "{{ omzsh_target_dir }}"
+    depth: 1
     accept_hostkey: yes
   become: no
 

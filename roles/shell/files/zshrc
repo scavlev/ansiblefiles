@@ -7,7 +7,7 @@ ZSH_THEME="robbyrussell"
 
 DISABLE_UPDATE_PROMPT="true"
 DISABLE_AUTO_UPDATE="true"
-plugins=(git kubectl helm percol)
+plugins=(git kubectl helm fzf)
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -30,6 +30,8 @@ dks() { docker kill $(docker ps -q) "$@"; }
 dkrm() { docker rm $(docker ps -a -q) "$@"; }
 # Delete all images
 dkrmi() { docker rmi $(docker images -q) "$@"; }
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
