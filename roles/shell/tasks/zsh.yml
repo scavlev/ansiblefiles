@@ -50,8 +50,3 @@
     dest: ~/.zshrc
     state: link
   become: no
-
-- name: Install percol
-  pip:
-    name: percol
-    state: latest
