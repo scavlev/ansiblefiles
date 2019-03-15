@@ -8,6 +8,7 @@
     - { role: git, tags: "git" }
     - { role: gitkraken, tags: "gitkraken" }
     - { role: python, tags: "python" }
+    - { role: aws, tags: "aws" }
     - { role: shell, tags: "shell" }
     - { role: docker, tags: "docker" }
     - { role: kubernetes, tags: "kubernetes" }
