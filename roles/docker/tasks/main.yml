@@ -25,13 +25,3 @@
     append: yes
   with_items:
     - "{{ username }}"
-
-- name: Update ufw to allow forwarding
-  lineinfile:
-    dest: /etc/default/ufw
-    regexp: DEFAULT_FORWARD_POLICY=
-    line: DEFAULT_FORWARD_POLICY="ACCEPT"
-
-- name: Reload ufw
-  ufw:
-    state: reloaded
