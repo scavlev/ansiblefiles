@@ -9,7 +9,7 @@ DISABLE_UPDATE_PROMPT="true"
 DISABLE_AUTO_UPDATE="true"
 plugins=(git kubectl helm fzf)
 
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH
 
 source $ZSH/oh-my-zsh.sh
 
