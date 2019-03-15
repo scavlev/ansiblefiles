@@ -1,0 +1,19 @@
+---
+
+- name: Get latest packer version
+  uri:
+    url: https://checkpoint-api.hashicorp.com/v1/check/packer
+    method: GET
+    status_code: 200
+    timeout: 10
+  register: packer_release
+
+- name: Extract packer version
+  set_fact:
+    packer_version: "{{ packer_release.json | json_query('current_version') }}"
+
+- name: Install packer
+  unarchive:
+    src: https://releases.hashicorp.com/packer/{{ packer_version }}/packer_{{ packer_version }}_linux_amd64.zip
+    dest: /usr/local/bin
+    remote_src: yes

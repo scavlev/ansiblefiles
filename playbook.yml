@@ -22,4 +22,6 @@
     - { role: sublime, tags: "sublime" }
     - { role: libreoffice, tags: "libreoffice" }
     - { role: elixir, tags: "elixir" }
+    - { role: terraform, tags: "terraform" }
+    - { role: packer, tags: "packer" }
     - { role: virtualbox, tags: "virtualbox" }

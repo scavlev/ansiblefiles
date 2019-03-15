@@ -1,0 +1,19 @@
+---
+
+- name: Get latest terraform version
+  uri:
+    url: https://checkpoint-api.hashicorp.com/v1/check/terraform
+    method: GET
+    status_code: 200
+    timeout: 10
+  register: terraform_release
+
+- name: Extract terraform version
+  set_fact:
+    terraform_version: "{{ terraform_release.json | json_query('current_version') }}"
+
+- name: Install terraform
+  unarchive:
+    src: https://releases.hashicorp.com/terraform/{{ terraform_version }}/terraform_{{ terraform_version }}_linux_amd64.zip
+    dest: /usr/local/bin
+    remote_src: yes
