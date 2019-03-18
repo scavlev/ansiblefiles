@@ -17,3 +17,17 @@
     src: https://releases.hashicorp.com/terraform/{{ terraform_version }}/terraform_{{ terraform_version }}_linux_amd64.zip
     dest: /usr/local/bin
     remote_src: yes
+
+- name: Get terragrunt url
+  shell: curl -s https://api.github.com/repos/gruntwork-io/terragrunt/releases/latest | grep "browser_download_url.*linux_amd64" | cut -d '"' -f 4
+  changed_when: false
+  args:
+    warn: no
+  register: terragrunt_url
+
+- name: Install terragrunt
+  get_url:
+    url: "{{ terragrunt_url.stdout }}"
+    dest: /usr/local/bin/terragrunt
+    force: yes
+    mode: +x
