@@ -18,6 +18,11 @@
     name: git
     state: latest
 
+- name: Install git-extras
+  apt:
+    name: git-extras
+    state: latest
+
 - name: Stat .gitconfig
   stat:
     path: ~/.gitconfig

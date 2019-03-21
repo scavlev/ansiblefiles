@@ -7,7 +7,7 @@ ZSH_THEME="robbyrussell"
 
 DISABLE_UPDATE_PROMPT="true"
 DISABLE_AUTO_UPDATE="true"
-plugins=(git kubectl helm fzf)
+plugins=(history sudo git git-extras zsh-autosuggestions zsh-syntax-highlighting aws docker encode64 urltools extract httpie kubectl helm jsontools fzf)
 
 export PATH=$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH
 
