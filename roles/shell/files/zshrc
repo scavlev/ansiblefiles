@@ -4,6 +4,7 @@ export EDITOR=nano
 
 skip_global_compinit=1
 ZSH_THEME="robbyrussell"
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=250'
 
 DISABLE_UPDATE_PROMPT="true"
 DISABLE_AUTO_UPDATE="true"
