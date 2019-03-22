@@ -8,7 +8,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=250'
 
 DISABLE_UPDATE_PROMPT="true"
 DISABLE_AUTO_UPDATE="true"
-plugins=(history sudo git git-extras zsh-autosuggestions zsh-syntax-highlighting aws docker encode64 urltools extract httpie kubectl helm jsontools fzf)
+plugins=(history sudo git git-extras zsh-autosuggestions zsh-syntax-highlighting aws encode64 urltools extract httpie kubectl helm jsontools fzf)
 
 export PATH=$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH
 
