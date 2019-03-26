@@ -1,0 +1,8 @@
+---
+
+- name: Install jetbrains-toolbox
+  unarchive:
+    src: https://data.services.jetbrains.com/products/download?platform=linux&code=TBA
+    dest: /usr/local/bin
+    remote_src: yes
+    extra_opts: [--strip-components=1]
