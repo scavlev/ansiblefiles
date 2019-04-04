@@ -9,6 +9,7 @@
   apt_repository:
     repo: deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
     mode: 644
+    filename: google-chrome
     state: present
     update_cache: yes
 
