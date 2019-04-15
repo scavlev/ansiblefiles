@@ -1,3 +1,7 @@
 ---
 
+virtualbox_ubuntu_codename: bionic
+virtualbox_debian_codename: stretch
+virtualbox_apt_repo_codename: "{{ lookup('pipe','. /etc/os-release && [ \"$ID\" = \"debian\" ] && echo {{ virtualbox_debian_codename }} || echo {{ virtualbox_ubuntu_codename }}')}}"
+
 virtualbox_version: "6.0"
