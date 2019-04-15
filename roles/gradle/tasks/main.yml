@@ -1,19 +1,7 @@
 ---
 
-- name: Add Gradle apt key
-  apt_key:
-    keyserver: "{{ ubuntu_keyserver }}"
-    id: 9D06AF36
-    state: present
-
-- name: Add Gradle repo
-  apt_repository:
-    repo: "deb http://ppa.launchpad.net/cwchien/gradle/ubuntu {{ ubuntu_codename }} main"
-    mode: 644
-    state: present
-    update_cache: yes
-
-- name: Install Gradle
-  apt:
-    name: "gradle"
-    state: latest
+- name: Install latest Gradle
+  shell: >-
+    . $HOME/.sdkman/bin/sdkman-init.sh && sdk install gradle
+  changed_when: false
+  become: no
