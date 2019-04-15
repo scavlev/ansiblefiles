@@ -1,23 +1,7 @@
 ---
 
-- name: Add openjdk-r apt key
-  apt_key:
-    keyserver: "{{ ubuntu_keyserver }}"
-    id: 86F44E2A
-    state: present
-
-- name: Add openjdk-r repo
-  apt_repository:
-    repo: "deb http://ppa.launchpad.net/openjdk-r/ppa/ubuntu {{ ubuntu_codename }} main"
-    mode: 644
-    state: present
-    update_cache: yes
-
-- name: Install Java 11
-  apt:
-    name:
-      - openjdk-11-jdk
-      - openjdk-11-source
-    state: latest
-
-- include_tasks: visualvm.yaml
+- name: Install latest Java
+  shell: >-
+    . $HOME/.sdkman/bin/sdkman-init.sh && sdk install java
+  changed_when: false
+  become: no

@@ -12,9 +12,10 @@
     - { role: shell, tags: "shell" }
     - { role: docker, tags: "docker" }
     - { role: kubernetes, tags: "kubernetes" }
-    - { role: jdk, tags: "jdk" }
-    - { role: jetbrains, tags: "jetbrains" }
     - { role: sdkman, tags: "sdkman" }
+    - { role: jdk, tags: "jdk" }
+    - { role: visualvm, tags: "visualvm" }
+    - { role: jetbrains, tags: "jetbrains" }
     - { role: gradle, tags: "gradle" }
     - { role: go, tags: "go" }
     - { role: nodejs, tags: "nodejs", type: "repo" }

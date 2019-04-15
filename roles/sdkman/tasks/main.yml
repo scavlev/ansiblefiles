@@ -6,3 +6,9 @@
   become: no
   args:
     warn: no
+
+- name: Update sdkman
+  shell: >-
+    . $HOME/.sdkman/bin/sdkman-init.sh && sdk selfupdate
+  changed_when: false
+  become: no
