@@ -7,7 +7,7 @@
 
 - name: Add Kubernetes repo
   apt_repository:
-    repo: "deb http://apt.kubernetes.io/ kubernetes-xenial main"
+    repo: "deb http://apt.kubernetes.io/ {{ kube_apt_repo_dist }} main"
     mode: 644
     state: present
     update_cache: yes

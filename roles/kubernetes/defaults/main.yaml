@@ -1,5 +1,9 @@
 ---
 
+kube_ubuntu_codename: kubernetes-xenial
+kube_debian_codename: kubernetes-stretch
+kube_apt_repo_dist: "{{ lookup('pipe','. /etc/os-release && [ \"$ID\" = \"debian\" ] && echo {{ kube_debian_codename }} || echo {{ kube_ubuntu_codename }}')}}"
+
 kube_packages:
   - kubelet
   - kubeadm
