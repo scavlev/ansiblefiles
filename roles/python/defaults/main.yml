@@ -1,6 +1,8 @@
 ---
 
-pip_install_script: "{{ tmp_files_dir }}/get-pip.py"
-python_packages:
-  - python3.8
-  - python-setuptools
+pip_packages:
+  - pip
+  - setuptools
+  - ansible
+  - wheel
+  - jmespath

@@ -6,6 +6,12 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+if [ -d ~/.pyenv ]; then
+  export PATH="$HOME/.pyenv/bin:$PATH"
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+fi
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

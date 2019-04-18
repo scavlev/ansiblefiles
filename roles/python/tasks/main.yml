@@ -1,39 +1,22 @@
 ---
 
-- name: Add Python apt key
-  apt_key:
-    keyserver: "{{ ubuntu_keyserver }}"
-    id: 6A755776
-    state: present
+- name: Clone pyenv repo
+  git:
+    repo: https://github.com/pyenv/pyenv.git
+    dest: "~/.pyenv"
+    depth: 1
+    accept_hostkey: yes
+  become: no
 
-- name: Add Python repo
-  apt_repository:
-    repo: "deb http://ppa.launchpad.net/deadsnakes/ppa/ubuntu {{ ubuntu_codename }} main"
-    mode: 644
-    state: present
-    update_cache: yes
+- name: Clone xxenv repo
+  git:
+    repo: https://github.com/momo-lab/xxenv-latest.git
+    dest: "~/.pyenv/plugins/xxenv-latest"
+    depth: 1
+    accept_hostkey: yes
+  become: no
 
-- name: Install Python packages
-  apt:
-    name: "{{ python_packages }}"
-    state: latest
-
-- name: Download pip installer
-  get_url:
-    url: https://bootstrap.pypa.io/get-pip.py
-    dest: "{{ pip_install_script }}"
-    force: yes
-  register: new_pip_downloaded
-
-- name: Install pip
-  shell: "python {{ pip_install_script }}"
-  when: new_pip_downloaded.changed
-
-- name: Install pip3
-  shell: "python3 {{ pip_install_script }}"
-  when: new_pip_downloaded.changed
-
-- name: Ensure jmespath is installed
+- name: Ensure latest pip packages installed
   pip:
-    name: jmespath
+    name: "{{ pip_packages }}"
     state: latest
