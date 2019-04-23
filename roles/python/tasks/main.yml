@@ -20,3 +20,4 @@
   pip:
     name: "{{ pip_packages }}"
     state: latest
+  become: no
