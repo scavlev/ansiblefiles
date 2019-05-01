@@ -1,7 +1,6 @@
 ---
 
-repo_ruby_version: "2.6"
-rvm_ruby_version: "2.6.0"
+rvm_ruby_version: "2.6.3"
 
 rvm_path: ~/.rvm
 rvm_exec: "{{ rvm_path }}/bin/rvm"

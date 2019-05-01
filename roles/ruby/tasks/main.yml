@@ -4,7 +4,3 @@
   args:
     apply:
       become: no
-  when: type == 'rvm'
-
-- include_tasks: repo.yml
-  when: type == 'repo'
