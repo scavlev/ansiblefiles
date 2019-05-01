@@ -8,14 +8,17 @@
 
 - name: Add Docker repo
   apt_repository:
-    repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ubuntu_codename }} stable"
+    repo: "deb [arch=amd64] https://download.docker.com/linux/{{ docker_apt_repo_dist }} {{ docker_apt_repo_codename }} stable"
     mode: 644
     state: present
     update_cache: yes
 
 - name: Install Docker
   apt:
-    name: docker-ce
+    name:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
     state: latest
 
 - name: Add user to docker group
