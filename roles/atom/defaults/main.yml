@@ -22,3 +22,4 @@ atom_packages:
   - color-picker
   - tree-view-copy-relative-path
   - pigments
+  - split-diff
