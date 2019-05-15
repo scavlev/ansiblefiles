@@ -27,5 +27,7 @@
 - name: Install Atom packages
   shell: "apm install {{ item }}"
   with_items: "{{ atom_packages }}"
+  async: 300
+  poll: 0
   become: no
   changed_when: false
