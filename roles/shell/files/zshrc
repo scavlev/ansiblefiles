@@ -14,6 +14,8 @@ export PATH=$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH
 
 source $ZSH/oh-my-zsh.sh
 
+export PATH=$PATH:/usr/local/go/bin
+
 export PATH="$PATH:$HOME/.rvm/bin"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
