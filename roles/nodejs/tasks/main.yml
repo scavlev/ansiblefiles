@@ -1,7 +1,9 @@
 ---
 
 - include_tasks: nvm.yml
-  become: no
+  args:
+    apply:
+      become: no
   when: type == 'nvm'
 
 - include_tasks: repo.yml
