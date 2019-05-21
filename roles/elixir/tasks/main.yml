@@ -7,7 +7,7 @@
 
 - name: Add Erlang Solutions repo
   apt_repository:
-    repo: "deb https://packages.erlang-solutions.com/ubuntu {{ ubuntu_codename }} contrib"
+    repo: "deb https://packages.erlang-solutions.com/{{ erlang_apt_repo_codename }} contrib"
     mode: 644
     state: present
     update_cache: yes
