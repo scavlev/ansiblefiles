@@ -27,3 +27,4 @@
     - { role: terraform, tags: "terraform" }
     - { role: packer, tags: "packer" }
     - { role: virtualbox, tags: "virtualbox" }
+    - { role: vscode, tags: "vscode" }

@@ -1,0 +1,25 @@
+---
+
+- name: Install Visual Studio Code
+  apt:
+    deb: "{{ vscode_download_link }}"
+
+- name: Stat Visual Studio Code settings
+  stat:
+    path: "~/.config/Code/User"
+  become: no
+  register: stat_vsc
+
+- name: Backup existing Visual Studio Code settings
+  command: "mv {{ vscode_user_config_dir }} {{ vscode_user_config_dir }}.bak"
+  args:
+    creates: "{{ vscode_user_config_dir }}.bak"
+  become: no
+  when: stat_vsc.stat.islnk is defined and not stat_vsc.stat.islnk
+
+- name: Symlink Visual Studio Code settings
+  file:
+    src: "{{ ansiblefiles_location }}/roles/vscode/files/User"
+    dest: "{{ vscode_user_config_dir }}"
+    state: link
+  become: no
