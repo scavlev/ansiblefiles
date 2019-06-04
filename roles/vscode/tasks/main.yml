@@ -4,6 +4,12 @@
   apt:
     deb: "{{ vscode_download_link }}"
 
+- name: Ensure Visual Studio Code settings directory exists
+  file:
+    path: "~/.config/Code"
+    state: directory
+  become: no
+
 - name: Stat Visual Studio Code settings
   stat:
     path: "~/.config/Code/User"
