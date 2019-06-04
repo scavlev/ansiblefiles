@@ -3,3 +3,18 @@
 vscode_download_link: https://go.microsoft.com/fwlink/?LinkID=760868
 
 vscode_user_config_dir: ~/.config/Code/User
+
+vscode_plugins:
+  - 30-seconds.30-seconds-of-code
+  - CoenraadS.bracket-pair-colorizer
+  - dbaeumer.vscode-eslint
+  - eamodio.gitlens
+  - esbenp.prettier-vscode
+  - formulahendry.terminal
+  - humao.rest-client
+  - mgmcdermott.vscode-language-babel
+  - PKief.material-icon-theme
+  - ritwickdey.LiveServer
+  - Tyriar.terminal-tabs
+  - WallabyJs.quokka-vscode
+  - zhuangtongfa.Material-theme

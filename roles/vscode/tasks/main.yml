@@ -23,3 +23,10 @@
     dest: "{{ vscode_user_config_dir }}"
     state: link
   become: no
+
+- name: Install Visual Studio Code plugins
+  shell: "code --install-extension {{ item }}"
+  with_items: "{{ vscode_plugins }}"
+  become: no
+  register: vscode_plugin_install
+  changed_when: "'is already installed' not in vscode_plugin_install.stdout"
