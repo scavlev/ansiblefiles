@@ -25,7 +25,7 @@
   become: no
 
 - name: Install Visual Studio Code plugins
-  shell: "code --install-extension {{ item }}"
+  shell: "code --install-extension {{ item }} --force"
   with_items: "{{ vscode_plugins }}"
   become: no
   register: vscode_plugin_install
