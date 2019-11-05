@@ -1,6 +1,6 @@
 ---
 
-docker_ubuntu_codename: xenial
+docker_ubuntu_codename: bionic
 docker_debian_codename: stretch
 docker_apt_repo_dist: "{{ lookup('pipe','. /etc/os-release && [ \"$ID\" = \"debian\" ] && echo debian || echo ubuntu')}}"
 docker_apt_repo_codename: "{{ lookup('pipe','. /etc/os-release && [ \"$ID\" = \"debian\" ] && echo {{ docker_debian_codename }} || echo {{ docker_ubuntu_codename }}')}}"
