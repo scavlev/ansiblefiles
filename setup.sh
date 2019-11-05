@@ -18,7 +18,7 @@ git clone https://github.com/momo-lab/xxenv-latest.git "$(pyenv root)"/plugins/x
 pyenv latest install -s
 pyenv latest global
 
-pip install ansible
+pip install ansible setuptools jmespath
 
 cd "${0%/*}"
-./ansiblefiles.sh
+./ansiblefiles.sh "$@"
