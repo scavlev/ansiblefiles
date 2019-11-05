@@ -4,6 +4,6 @@
   shell: >-
     . $HOME/.sdkman/bin/sdkman-init.sh && sdk install java
   register: jdk_install_result
-  failed_when: jdk_install_result.rc > 1 # fails on the same version install with rc = 1
-  changed_when: false
+  failed_when: jdk_install_result.rc != 0 and jdk_install_result.stdout is not search('already installed')
+  changed_when: jdk_install_result.stdout is search('Done installing!')
   become: no

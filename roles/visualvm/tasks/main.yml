@@ -3,5 +3,7 @@
 - name: Install latest visualvm
   shell: >-
     . $HOME/.sdkman/bin/sdkman-init.sh && sdk install visualvm
-  changed_when: false
+  register: visualvm_install_result
+  failed_when: visualvm_install_result.rc != 0 and visualvm_install_result.stdout is not search('already installed')
+  changed_when: visualvm_install_result.stdout is search('Done installing!')
   become: no

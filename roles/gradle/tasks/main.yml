@@ -3,5 +3,7 @@
 - name: Install latest Gradle
   shell: >-
     . $HOME/.sdkman/bin/sdkman-init.sh && sdk install gradle
-  changed_when: false
+  register: gradle_install_result
+  failed_when: gradle_install_result.rc != 0 and gradle_install_result.stdout is not search('already installed')
+  changed_when: gradle_install_result.stdout is search('Done installing!')
   become: no
