@@ -1,6 +1,9 @@
-#!/bin/sh
+#!/bin/bash
 
 set -x
+
+cd "${0%/*}"
+current_dir=$PWD
 
 sudo apt-get update
 sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev \
@@ -18,7 +21,14 @@ git clone https://github.com/momo-lab/xxenv-latest.git "$(pyenv root)"/plugins/x
 pyenv latest install -s
 pyenv latest global
 
-pip install ansible setuptools jmespath
+pip install --upgrade pip ansible setuptools jmespath
 
-cd "${0%/*}"
+cd "$HOME/.pyenv/versions/$(pyenv version-name)/lib/python$(pyenv version-name | cut -c1-3)/site-packages"
+apt download python3-apt
+dpkg -x python3-apt_*.deb python3-apt
+cp -r python3-apt/usr/lib/python3/dist-packages/* .
+mv apt_pkg.*.so apt_pkg.so
+mv apt_inst.*.so apt_inst.so
+
+cd $current_dir
 ./ansiblefiles.sh "$@"
