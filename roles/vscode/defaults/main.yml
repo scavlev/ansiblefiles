@@ -18,3 +18,5 @@ vscode_plugins:
   - Tyriar.terminal-tabs
   - WallabyJs.quokka-vscode
   - zhuangtongfa.Material-theme
+  - mauve.terraform
+  - ms-azuretools.vscode-docker
