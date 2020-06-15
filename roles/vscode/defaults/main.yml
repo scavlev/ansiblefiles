@@ -22,4 +22,4 @@ vscode_plugins:
   - ms-azuretools.vscode-docker
   - mathiasfrohlich.kotlin
   - vscjava.vscode-java-pack
-  - ms-vscode.go
+  - golang.go
