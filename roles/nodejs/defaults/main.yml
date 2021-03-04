@@ -7,3 +7,4 @@ nvm_init_script: "{{ nvm_target_dir }}/nvm.sh"
 npm_packages:
   - npm
   - create-react-app
+  - yarn

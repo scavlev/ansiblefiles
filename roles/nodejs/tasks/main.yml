@@ -8,5 +8,3 @@
 
 - include_tasks: repo.yml
   when: type == 'repo'
-
-- include_tasks: yarn.yml
