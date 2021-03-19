@@ -20,7 +20,6 @@
     - { role: go, tags: "go" }
     - { role: nodejs, tags: "nodejs", type: "repo" }
     - { role: ruby, tags: "ruby" }
-    - { role: atom, tags: "atom" }
     - { role: sublime, tags: "sublime" }
     - { role: libreoffice, tags: "libreoffice" }
     - { role: elixir, tags: "elixir" }
@@ -29,3 +28,4 @@
     - { role: virtualbox, tags: "virtualbox" }
     - { role: vscode, tags: "vscode" }
     - { role: waypoint, tags: "waypoint" }
+    - { role: atom, tags: "atom" }
