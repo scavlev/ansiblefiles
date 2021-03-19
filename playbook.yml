@@ -28,3 +28,4 @@
     - { role: packer, tags: "packer" }
     - { role: virtualbox, tags: "virtualbox" }
     - { role: vscode, tags: "vscode" }
+    - { role: waypoint, tags: "waypoint" }
