@@ -9,7 +9,7 @@
   git:
     repo: "{{ fzf_git_repo }}"
     dest: "{{ fzf_target_dir }}"
-    depth: 1
+    depth: "1"
     accept_hostkey: yes
   become: no
 
@@ -22,7 +22,7 @@
   git:
     repo: "{{ omzsh_git_repo }}"
     dest: "{{ omzsh_target_dir }}"
-    depth: 1
+    depth: "1"
     accept_hostkey: yes
   become: no
 
@@ -55,7 +55,7 @@
   git:
     repo: "https://github.com/zsh-users/zsh-autosuggestions.git"
     dest: "~/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
-    depth: 1
+    depth: "1"
     accept_hostkey: yes
   become: no
 
@@ -63,6 +63,14 @@
   git:
     repo: "https://github.com/zsh-users/zsh-syntax-highlighting.git"
     dest: "~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
-    depth: 1
+    depth: "1"
+    accept_hostkey: yes
+  become: no
+
+- name: Clone zsh-sdkman
+  git:
+    repo: "https://github.com/matthieusb/zsh-sdkman.git"
+    dest: "~/.oh-my-zsh/custom/plugins/zsh-sdkman"
+    depth: "1"
     accept_hostkey: yes
   become: no

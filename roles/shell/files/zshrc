@@ -1,28 +1,40 @@
+skip_global_compinit=1
 export ZSH=$HOME/.oh-my-zsh
 
-export EDITOR=nano
-
-skip_global_compinit=1
 ZSH_THEME="robbyrussell"
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=250'
 
-DISABLE_UPDATE_PROMPT="true"
-DISABLE_AUTO_UPDATE="true"
-plugins=(history sudo git git-extras zsh-autosuggestions zsh-syntax-highlighting aws encode64 urltools extract httpie kubectl helm jsontools fzf)
+DISABLE_UPDATE_PROMPT=true
+DISABLE_AUTO_UPDATE=true
 
-export PATH=$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH
+export EDITOR=nano
+
+plugins=(
+  pyenv
+  history
+  sudo
+  git
+  git-extras
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+  aws
+  encode64
+  urltools
+  extract
+  httpie
+  kubectl
+  helm
+  jsontools
+  fzf
+  zsh-sdkman
+)
 
 source $ZSH/oh-my-zsh.sh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+export PATH=$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH
 export PATH=$PATH:/usr/local/go/bin
-
 export PATH="$PATH:$HOME/.rvm/bin"
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
-
-alias k="kubectl"
 
 ansiblefiles() { cd ~/.ansiblefiles && ./ansiblefiles.sh "$@" || true && cd $OLDPWD ;}
 
@@ -33,15 +45,3 @@ dks() { docker kill $(docker ps -q) "$@"; }
 dkrm() { docker rm $(docker ps -a -q) "$@"; }
 # Delete all images
 dkrmi() { docker rmi $(docker images -q) "$@"; }
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-if [ -d ~/.pyenv ]; then
-  export PATH="$HOME/.pyenv/bin:$PATH"
-  eval "$(pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
-fi
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
