@@ -1,5 +1,4 @@
 ---
-
 - name: Add Docker apt key
   apt_key:
     keyserver: hkp://pgp.mit.edu:80
@@ -17,6 +16,7 @@
   apt:
     name:
       - docker-ce
+      - docker-compose
       - docker-ce-cli
       - containerd.io
     state: latest
@@ -24,7 +24,8 @@
 - name: Add user to docker group
   user:
     name: "{{ item }}"
-    groups: docker
+    groups:
+      - docker
     append: yes
   with_items:
     - "{{ username }}"
