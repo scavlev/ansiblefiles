@@ -1,10 +1,10 @@
 ---
-
 - name: Get latest packer version
   uri:
     url: https://checkpoint-api.hashicorp.com/v1/check/packer
     method: GET
-    status_code: 200
+    status_code:
+      - 200
     timeout: 10
   register: packer_release
 
