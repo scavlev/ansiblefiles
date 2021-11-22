@@ -1,6 +1,5 @@
 ---
-
-rvm_ruby_version: "3.0.0"
+rvm_ruby_version: "3.0.2"
 
 rvm_path: ~/.rvm
 rvm_exec: "{{ rvm_path }}/bin/rvm"
