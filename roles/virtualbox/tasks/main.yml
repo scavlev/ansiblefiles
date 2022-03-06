@@ -1,5 +1,4 @@
 ---
-
 - name: Add VirtualBox apt key
   apt_key:
     url: https://www.virtualbox.org/download/oracle_vbox.asc

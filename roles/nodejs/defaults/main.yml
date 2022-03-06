@@ -1,5 +1,4 @@
 ---
-
 nvm_git_repo: https://github.com/creationix/nvm.git
 nvm_target_dir: ~/.nvm
 nvm_init_script: "{{ nvm_target_dir }}/nvm.sh"

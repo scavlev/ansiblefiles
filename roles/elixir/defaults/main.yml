@@ -1,5 +1,4 @@
 ---
-
 erlang_ubuntu_codename: ubuntu focal
 erlang_debian_codename: debian stretch
-erlang_apt_repo_codename: "{{ lookup('pipe','. /etc/os-release && [ \"$ID\" = \"debian\" ] && echo {{ erlang_debian_codename }} || echo {{ erlang_ubuntu_codename }}')}}"
+erlang_apt_repo_codename: '{{ lookup(''pipe'',''. /etc/os-release && [ "$ID" = "debian" ] && echo {{ erlang_debian_codename }} || echo {{ erlang_ubuntu_codename }}'')}}'

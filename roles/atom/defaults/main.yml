@@ -1,5 +1,4 @@
 ---
-
 atom_packages:
   - linter
   - linter-eslint

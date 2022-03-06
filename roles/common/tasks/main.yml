@@ -1,5 +1,4 @@
 ---
-
 - name: Perform apt dist upgrade
   apt:
     update_cache: yes

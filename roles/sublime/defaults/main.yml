@@ -1,5 +1,4 @@
 ---
-
 ansiblefiles_sublime_settings_dir: "{{ ansiblefiles_location }}/roles/sublime/files/User"
 
 sublime_config_dir: ~/.config/sublime-text-3

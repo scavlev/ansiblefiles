@@ -1,5 +1,4 @@
 ---
-
 - name: Add Waypoint apt key
   apt_key:
     url: https://apt.releases.hashicorp.com/gpg

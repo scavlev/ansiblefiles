@@ -1,5 +1,4 @@
 ---
-
 - name: Download RVM mpapis gpg key
   get_url:
     url: https://rvm.io/mpapis.asc

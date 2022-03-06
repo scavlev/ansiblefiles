@@ -1,5 +1,4 @@
 ---
-
 - name: Add Git apt key
   apt_key:
     keyserver: "{{ ubuntu_keyserver }}"

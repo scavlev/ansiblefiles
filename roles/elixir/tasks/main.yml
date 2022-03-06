@@ -1,5 +1,4 @@
 ---
-
 - name: Add Erlang Solutions apt key
   apt_key:
     url: https://packages.erlang-solutions.com/ubuntu/erlang_solutions.asc

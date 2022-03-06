@@ -1,5 +1,4 @@
 ---
-
 - name: Install sdkman
   shell: curl -s "https://get.sdkman.io" | bash
   changed_when: false

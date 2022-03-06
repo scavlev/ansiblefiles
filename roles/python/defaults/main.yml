@@ -1,8 +1,5 @@
 ---
-
 pip_packages:
   - pip
-  - setuptools
   - ansible
-  - wheel
   - jmespath

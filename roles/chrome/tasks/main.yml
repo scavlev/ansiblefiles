@@ -1,5 +1,4 @@
 ---
-
 - name: Add Google Chrome apt key
   apt_key:
     url: https://dl-ssl.google.com/linux/linux_signing_key.pub

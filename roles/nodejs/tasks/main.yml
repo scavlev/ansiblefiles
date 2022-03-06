@@ -1,5 +1,4 @@
 ---
-
 - include_tasks: nvm.yml
   args:
     apply:

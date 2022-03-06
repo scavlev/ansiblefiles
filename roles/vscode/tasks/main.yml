@@ -1,5 +1,4 @@
 ---
-
 - name: Install Visual Studio Code
   apt:
     deb: "{{ vscode_download_link }}"

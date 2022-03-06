@@ -1,5 +1,4 @@
 ---
-
 - name: Clone NVM repo
   git:
     repo: "{{ nvm_git_repo }}"
@@ -26,7 +25,7 @@
   changed_when: false
 
 - name: Install latest global npm packages
-  npm: 
+  npm:
     executable: "~/.nvm/versions/node/{{ current_node_version.stdout }}/bin/npm"
     name: "{{ item }}"
     global: yes

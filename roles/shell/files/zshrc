@@ -9,6 +9,10 @@ DISABLE_AUTO_UPDATE=true
 
 export EDITOR=nano
 
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+
 plugins=(
   pyenv
   history
@@ -36,7 +40,7 @@ export PATH=$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH
 export PATH=$PATH:/usr/local/go/bin
 export PATH="$PATH:$HOME/.rvm/bin"
 
-ansiblefiles() { cd ~/.ansiblefiles && ./ansiblefiles.sh "$@" || true && cd $OLDPWD ;}
+ansiblefiles() { cd ~/.ansiblefiles && ./ansiblefiles.sh "$@" || true && cd $OLDPWD; }
 
 # Docker
 # Stop all containers
@@ -45,3 +49,7 @@ dks() { docker kill $(docker ps -q) "$@"; }
 dkrm() { docker rm $(docker ps -a -q) "$@"; }
 # Delete all images
 dkrmi() { docker rmi $(docker images -q) "$@"; }
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

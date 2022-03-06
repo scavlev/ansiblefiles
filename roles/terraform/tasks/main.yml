@@ -1,5 +1,4 @@
 ---
-
 - name: Get latest terraform version
   uri:
     url: https://checkpoint-api.hashicorp.com/v1/check/terraform

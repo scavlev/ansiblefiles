@@ -1,5 +1,4 @@
 ---
-
 - name: Install zsh libs
   apt:
     name: zsh

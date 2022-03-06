@@ -1,5 +1,4 @@
 ---
-
 - name: Install jetbrains-toolbox
   unarchive:
     src: https://data.services.jetbrains.com/products/download?platform=linux&code=TBA

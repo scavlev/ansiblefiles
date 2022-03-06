@@ -1,5 +1,4 @@
 ---
-
 - name: Install latest Gradle
   shell: >-
     . $HOME/.sdkman/bin/sdkman-init.sh && sdk install gradle

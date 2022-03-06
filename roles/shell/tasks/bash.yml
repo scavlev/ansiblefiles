@@ -1,7 +1,6 @@
 ---
-
 - name: Stat .bashrc
-  stat:  
+  stat:
     path: ~/.bashrc
   become: no
   register: stat_bashrc

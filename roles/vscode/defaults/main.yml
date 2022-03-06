@@ -1,25 +1,13 @@
 ---
-
 vscode_download_link: https://go.microsoft.com/fwlink/?LinkID=760868
 
 vscode_user_config_dir: ~/.config/Code/User
 
 vscode_plugins:
-  - 30-seconds.30-seconds-of-code
-  - CoenraadS.bracket-pair-colorizer
+  - formulahendry.auto-rename-tag
   - dbaeumer.vscode-eslint
   - eamodio.gitlens
+  - ritwickdey.liveserver
   - esbenp.prettier-vscode
   - formulahendry.terminal
-  - humao.rest-client
-  - mgmcdermott.vscode-language-babel
-  - PKief.material-icon-theme
-  - ritwickdey.LiveServer
-  - Tyriar.terminal-tabs
-  - WallabyJs.quokka-vscode
-  - zhuangtongfa.Material-theme
-  - hashicorp.terraform
-  - ms-azuretools.vscode-docker
-  - mathiasfrohlich.kotlin
-  - vscjava.vscode-java-pack
-  - golang.go
+  - foxundermoon.shell-format

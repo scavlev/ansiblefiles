@@ -1,7 +1,6 @@
 ---
-
 - name: Install aws-cli
   pip:
-    name: awscli
+    name: awscliv2
     extra_args: --upgrade --user
   become: no

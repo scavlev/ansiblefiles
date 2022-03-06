@@ -1,5 +1,4 @@
 ---
-
 - name: Stat Atom settings
   stat:
     path: ~/.atom

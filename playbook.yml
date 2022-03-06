@@ -1,7 +1,7 @@
 ---
-
 - hosts: localhost
   become: yes
+  ignore_errors: yes
   roles:
     - { role: common, tags: "common" }
     - { role: shell, tags: "shell" }

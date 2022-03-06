@@ -1,10 +1,4 @@
 ---
-
-- name: Install gnome keyring
-  apt:
-    name: libgnome-keyring-dev
-    state: latest
-
 - name: Install GitKraken
   apt:
     deb: https://release.gitkraken.com/linux/gitkraken-amd64.deb
