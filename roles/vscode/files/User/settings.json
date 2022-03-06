@@ -2,5 +2,7 @@
   "editor.formatOnSave": true,
   "files.autoSave": "afterDelay",
   "telemetry.telemetryLevel": "off",
-  "terminal.enableAppInsights": false
+  "terminal.enableAppInsights": false,
+  "git.autofetch": true,
+  "workbench.iconTheme": "material-icon-theme"
 }
