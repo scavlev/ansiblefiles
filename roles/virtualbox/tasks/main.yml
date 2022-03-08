@@ -11,7 +11,7 @@
 
 - name: Add VirtualBox repo
   apt_repository:
-    repo: "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian {{ virtualbox_apt_repo_codename }} contrib"
+    repo: "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian {{ virtualbox_apt_repo_codename }} contrib"
     mode: 644
     state: present
     update_cache: yes
