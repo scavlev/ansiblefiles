@@ -6,7 +6,7 @@
 
 - name: Add Nodesource repo
   apt_repository:
-    repo: "deb https://deb.nodesource.com/node_17.x {{ ubuntu_codename }} main"
+    repo: "deb https://deb.nodesource.com/node_18.x {{ ubuntu_codename }} main"
     mode: 644
     state: present
     update_cache: yes
