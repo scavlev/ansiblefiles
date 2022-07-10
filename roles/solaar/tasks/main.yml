@@ -1,0 +1,18 @@
+---
+- name: Add Solaar apt key
+  apt_key:
+    keyserver: "{{ ubuntu_keyserver }}"
+    id: 2303D595EE907473
+    state: present
+
+- name: Add Solaar repo
+  apt_repository:
+    repo: "deb https://ppa.launchpadcontent.net/solaar-unifying/stable/ubuntu {{ ubuntu_codename }} main "
+    mode: 644
+    state: present
+    update_cache: yes
+
+- name: Install Solaar
+  apt:
+    name: solaar
+    state: latest
