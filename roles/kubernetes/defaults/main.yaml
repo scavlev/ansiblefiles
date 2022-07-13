@@ -1,5 +1,5 @@
 ---
 kube_packages:
-  - kubeadm
   - kubectl
-  - kubernetes-cni
+  # - kubeadm
+  # - kubernetes-cni
