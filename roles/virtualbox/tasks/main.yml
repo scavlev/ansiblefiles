@@ -1,17 +1,12 @@
 ---
 - name: Add VirtualBox apt key
-  apt_key:
-    url: https://www.virtualbox.org/download/oracle_vbox.asc
-    state: present
-
-- name: Add VirtualBox 2016 apt key
-  apt_key:
-    url: https://www.virtualbox.org/download/oracle_vbox_2016.asc
-    state: present
+  shell: curl -fsSL "https://www.virtualbox.org/download/oracle_vbox_2016.asc" | gpg --dearmor -o /etc/apt/keyrings/virtualbox.gpg
+  args:
+    creates: /etc/apt/keyrings/virtualbox.gpg
 
 - name: Add VirtualBox repo
   apt_repository:
-    repo: "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian {{ virtualbox_apt_repo_codename }} contrib"
+    repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/virtualbox.gpg] https://download.virtualbox.org/virtualbox/debian {{ ubuntu_codename }} contrib"
     mode: 644
     state: present
     update_cache: yes

@@ -1,5 +1,0 @@
----
-- include_tasks: rvm.yml
-  args:
-    apply:
-      become: no

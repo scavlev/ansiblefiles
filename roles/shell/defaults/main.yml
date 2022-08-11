@@ -1,6 +1,0 @@
----
-omzsh_git_repo: https://github.com/robbyrussell/oh-my-zsh.git
-omzsh_target_dir: ~/.oh-my-zsh
-
-fzf_git_repo: https://github.com/junegunn/fzf.git
-fzf_target_dir: ~/.fzf

@@ -8,7 +8,14 @@
 
 - name: Install essential libs
   apt:
-    name: "{{ apt_packages }}"
+    name:
+      - curl
+      - wget
+      - jq
+      - software-properties-common
+      - build-essential
+      - httpie
+      - htop
     state: latest
 
 - name: Symlink itself to ~/.ansiblefiles

@@ -1,13 +1,12 @@
 ---
 - name: Add Solaar apt key
-  apt_key:
-    keyserver: "{{ ubuntu_keyserver }}"
-    id: 2303D595EE907473
-    state: present
+  shell: curl -fsSL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x643FF34AF9151DC814DD3A1B2303D595EE907473" | gpg --dearmor -o /etc/apt/keyrings/solaar.gpg
+  args:
+    creates: /etc/apt/keyrings/solaar.gpg
 
 - name: Add Solaar repo
   apt_repository:
-    repo: "deb https://ppa.launchpadcontent.net/solaar-unifying/stable/ubuntu {{ ubuntu_codename }} main "
+    repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/solaar.gpg] https://ppa.launchpadcontent.net/solaar-unifying/stable/ubuntu {{ ubuntu_codename }} main "
     mode: 644
     state: present
     update_cache: yes

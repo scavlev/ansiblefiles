@@ -1,18 +1,19 @@
 ---
 - name: Add LibreOffice apt key
-  apt_key:
-    keyserver: "{{ ubuntu_keyserver }}"
-    id: 1378B444
-    state: present
+  shell: curl -fsSL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x36E81C9267FD1383FCC4490983FBA1751378B444" | gpg --dearmor -o /etc/apt/keyrings/libreoffice.gpg
+  args:
+    creates: /etc/apt/keyrings/libreoffice.gpg
 
 - name: Add LibreOffice repo
   apt_repository:
-    repo: "deb http://ppa.launchpad.net/libreoffice/ppa/ubuntu {{ ubuntu_codename }} main"
+    repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/libreoffice.gpg] https://ppa.launchpadcontent.net/libreoffice/ppa/ubuntu {{ ubuntu_codename }} main"
     mode: 644
     state: present
     update_cache: yes
 
 - name: Install LibreOffice packages
   apt:
-    name: "{{ libreoffice_packages }}"
+    name:
+      - libreoffice
+      - libreoffice-style-breeze
     state: latest

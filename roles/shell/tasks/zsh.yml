@@ -6,21 +6,21 @@
 
 - name: Clone fzf
   git:
-    repo: "{{ fzf_git_repo }}"
-    dest: "{{ fzf_target_dir }}"
+    repo: https://github.com/junegunn/fzf.git
+    dest: ~/.fzf
     depth: "1"
     accept_hostkey: yes
   become: no
 
 - name: Install fzf
-  command: "{{ fzf_target_dir }}/install --all"
+  command: "~/.fzf/install --all"
   changed_when: false
   become: no
 
 - name: Clone Oh-My-Zsh repo
   git:
-    repo: "{{ omzsh_git_repo }}"
-    dest: "{{ omzsh_target_dir }}"
+    repo: https://github.com/robbyrussell/oh-my-zsh.git
+    dest: ~/.oh-my-zsh
     depth: "1"
     accept_hostkey: yes
   become: no

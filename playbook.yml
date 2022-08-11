@@ -19,7 +19,6 @@
     - { role: gradle, tags: "gradle" }
     - { role: go, tags: "go" }
     - { role: nodejs, tags: "nodejs", type: "repo" }
-    - { role: ruby, tags: "ruby" }
     - { role: libreoffice, tags: "libreoffice" }
     - { role: terraform, tags: "terraform" }
     - { role: packer, tags: "packer" }

@@ -1,19 +1,22 @@
 ---
 - name: Add Kubernetes apt key
-  apt_key:
-    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
-    state: present
+  shell: curl -fsSL "https://packages.cloud.google.com/apt/doc/apt-key.gpg" | gpg --dearmor -o /etc/apt/keyrings/kubernetes.gpg
+  args:
+    creates: /etc/apt/keyrings/kubernetes.gpg
 
 - name: Add Kubernetes repo
   apt_repository:
-    repo: "deb https://apt.kubernetes.io/ kubernetes-xenial main"
+    repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/kubernetes.gpg] https://apt.kubernetes.io/ kubernetes-xenial main"
     mode: 644
     state: present
     update_cache: yes
 
-- name: Install Kubernetes
+- name: Install Kubernetes tools
   apt:
-    name: "{{ kube_packages }}"
+    name:
+      - kubectl
+      # - kubeadm
+      # - kubernetes-cni
     state: latest
 
 - include_tasks: helm.yml

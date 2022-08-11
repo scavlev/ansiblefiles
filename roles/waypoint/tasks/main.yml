@@ -1,12 +1,12 @@
 ---
 - name: Add Waypoint apt key
-  apt_key:
-    url: https://apt.releases.hashicorp.com/gpg
-    state: present
+  shell: curl -fsSL "https://apt.releases.hashicorp.com/gpg" | gpg --dearmor -o /etc/apt/keyrings/waypoint.gpg
+  args:
+    creates: /etc/apt/keyrings/waypoint.gpg
 
 - name: Add Waypoint repo
   apt_repository:
-    repo: "deb [arch=amd64] https://apt.releases.hashicorp.com {{ ubuntu_codename }} main"
+    repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/waypoint.gpg] https://apt.releases.hashicorp.com {{ ubuntu_codename }} main"
     mode: 644
     state: present
     update_cache: yes

@@ -17,6 +17,9 @@
 
 - name: Ensure latest pip packages installed
   pip:
-    name: "{{ pip_packages }}"
+    name:
+      - pip
+      - ansible
+      - jmespath
     state: latest
   become: no

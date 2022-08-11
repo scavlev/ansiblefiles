@@ -1,12 +1,12 @@
 ---
 - name: Add Nodesource apt key
-  apt_key:
-    url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
-    state: present
+  shell: curl -fsSL "https://deb.nodesource.com/gpgkey/nodesource.gpg.key" | gpg --dearmor -o /etc/apt/keyrings/nodejs.gpg
+  args:
+    creates: /etc/apt/keyrings/nodejs.gpg
 
 - name: Add Nodesource repo
   apt_repository:
-    repo: "deb https://deb.nodesource.com/node_18.x {{ ubuntu_codename }} main"
+    repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/nodejs.gpg] https://deb.nodesource.com/node_18.x {{ ubuntu_codename }} main"
     mode: 644
     state: present
     update_cache: yes

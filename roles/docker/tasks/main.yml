@@ -1,13 +1,12 @@
 ---
 - name: Add Docker apt key
-  apt_key:
-    keyserver: hkp://pgp.mit.edu:80
-    id: 0EBFCD88
-    state: present
+  shell: curl -fsSL "https://download.docker.com/linux/ubuntu/gpg" | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+  args:
+    creates: /etc/apt/keyrings/docker.gpg
 
 - name: Add Docker repo
   apt_repository:
-    repo: "deb [arch=amd64] https://download.docker.com/linux/{{ docker_apt_repo_dist }} {{ docker_apt_repo_codename }} stable"
+    repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu {{ ubuntu_codename }} stable"
     mode: 644
     state: present
     update_cache: yes
@@ -16,8 +15,8 @@
   apt:
     name:
       - docker-ce
-      - docker-compose
       - docker-ce-cli
+      - docker-compose-plugin
       - containerd.io
     state: latest
 

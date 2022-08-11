@@ -1,9 +1,0 @@
----
-apt_packages:
-  - curl
-  - wget
-  - jq
-  - software-properties-common
-  - build-essential
-  - httpie
-  - htop

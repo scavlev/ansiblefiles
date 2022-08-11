@@ -1,13 +1,12 @@
 ---
 - name: Add Git apt key
-  apt_key:
-    keyserver: "{{ ubuntu_keyserver }}"
-    id: E1DF1F24
-    state: present
+  shell: curl -fsSL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xE1DD270288B4E6030699E45FA1715D88E1DF1F24" | gpg --dearmor -o /etc/apt/keyrings/git.gpg
+  args:
+    creates: /etc/apt/keyrings/git.gpg
 
 - name: Add Git repo
   apt_repository:
-    repo: "deb http://ppa.launchpad.net/git-core/ppa/ubuntu {{ ubuntu_codename }} main"
+    repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/git.gpg] https://ppa.launchpadcontent.net/git-core/ppa/ubuntu {{ ubuntu_codename }} main"
     mode: 644
     state: present
     update_cache: yes
