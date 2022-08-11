@@ -7,3 +7,13 @@
   rebase = true
 [core]
   autocrlf = input
+
+[diff]
+    guitool = vscode
+[difftool "vscode"]
+    cmd = code --wait --diff $LOCAL $REMOTE
+
+[merge]
+    guitool = vscode
+[mergetool "vscode"]
+    cmd = code --wait $MERGED
