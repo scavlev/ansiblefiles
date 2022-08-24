@@ -1,0 +1,17 @@
+---
+- name: Add Numix apt key
+  shell: curl -fsSL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x43E076121739DEE5FB96BBED52B709720F164EEB" | gpg --dearmor -o /etc/apt/keyrings/numix.gpg
+  args:
+    creates: /etc/apt/keyrings/numix.gpg
+
+- name: Add Numix repo
+  apt_repository:
+    repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/numix.gpg] https://ppa.launchpadcontent.net/numix/ppa/ubuntu {{ ubuntu_codename }} main"
+    mode: 644
+    state: present
+    update_cache: yes
+
+- name: Install Numix
+  apt:
+    name: numix-icon-theme-square
+    state: latest

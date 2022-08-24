@@ -1,0 +1,19 @@
+---
+- name: Add Papirus apt key
+  shell: curl -fsSL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x9461999446FAF0DF770BFC9AE58A9D36647CAE7F" | gpg --dearmor -o /etc/apt/keyrings/papirus.gpg
+  args:
+    creates: /etc/apt/keyrings/papirus.gpg
+
+- name: Add Papirus repo
+  apt_repository:
+    repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/papirus.gpg] https://ppa.launchpadcontent.net/papirus/papirus/ubuntu {{ ubuntu_codename }} main"
+    mode: 644
+    state: present
+    update_cache: yes
+
+- name: Install Papirus
+  apt:
+    name:
+      - papirus-icon-theme
+      - papirus-folders
+    state: latest

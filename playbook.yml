@@ -26,3 +26,4 @@
     - { role: vscode, tags: "vscode" }
     - { role: waypoint, tags: "waypoint" }
     - { role: solaar, tags: "solaar" }
+    - { role: icons, tags: "icons" }
