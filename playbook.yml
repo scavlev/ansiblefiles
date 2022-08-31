@@ -18,7 +18,7 @@
     - { role: jetbrains, tags: "jetbrains" }
     - { role: gradle, tags: "gradle" }
     - { role: go, tags: "go" }
-    - { role: nodejs, tags: "nodejs", type: "repo" }
+    - { role: nodejs, tags: "nodejs", type: "nvm" }
     - { role: libreoffice, tags: "libreoffice" }
     - { role: terraform, tags: "terraform" }
     - { role: packer, tags: "packer" }

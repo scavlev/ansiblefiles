@@ -16,11 +16,10 @@
   shell: "source {{ nvm_init_script }} && nvm alias default node"
   args:
     executable: /bin/bash
-  register: node_default_result
   changed_when: false
 
 - name: Determine current Node version
-  shell: 'echo "{{ node_default_result.stdout }}" | grep -Po "\(-> \K[^\)]+"'
+  shell: "source {{ nvm_init_script }} && nvm current"
   register: current_node_version
   changed_when: false
 
