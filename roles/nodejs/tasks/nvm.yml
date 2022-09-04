@@ -24,9 +24,6 @@
   changed_when: false
 
 - name: Install latest global npm packages
-  npm:
-    executable: "~/.nvm/versions/node/{{ current_node_version.stdout }}/bin/npm"
-    name: "{{ item }}"
-    global: yes
-    state: latest
+  shell: "source {{ nvm_init_script }} && npm install -g {{ item }}"
   with_items: "{{ npm_packages }}"
+  changed_when: false
