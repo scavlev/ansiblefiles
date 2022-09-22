@@ -16,6 +16,7 @@ eval "$(pyenv init --path)"
 
 plugins=(
   nvm
+  yarn
   pyenv
   history
   sudo
@@ -29,6 +30,7 @@ plugins=(
   extract
   httpie
   kubectl
+  kube-ps1
   helm
   jsontools
   fzf
@@ -36,12 +38,22 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+KUBE_PS1_SYMBOL_USE_IMG=true
+function get_cluster_short() {
+  echo "$1" | cut -d / -f2
+}
+KUBE_PS1_CLUSTER_FUNCTION=get_cluster_short
+PROMPT=$PROMPT'$(kube_ps1) '
 
 export PATH=$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH
 export PATH=$PATH:/usr/local/go/bin
 
 ansiblefiles() { cd ~/.ansiblefiles && ./ansiblefiles.sh "$@" || true && cd $OLDPWD; }
+
+alias aws='awsv2'
 
 # Docker
 # Stop all containers
