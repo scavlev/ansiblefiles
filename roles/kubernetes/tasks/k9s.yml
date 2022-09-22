@@ -2,6 +2,6 @@
 - name: Install k9s
   homebrew:
     name: derailed/k9s/k9s
-    path: ~/.homebrew/bin
+    path: ~/.linuxbrew/bin
     state: latest
   become: no

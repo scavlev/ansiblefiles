@@ -48,6 +48,7 @@ function get_cluster_short() {
 }
 KUBE_PS1_CLUSTER_FUNCTION=get_cluster_short
 PROMPT=$PROMPT'$(kube_ps1) '
+export PATH="${PATH}:${HOME}/.krew/bin"
 
 export PATH=$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH
 export PATH=$PATH:/usr/local/go/bin

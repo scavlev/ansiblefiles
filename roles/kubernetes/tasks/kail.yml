@@ -1,7 +1,7 @@
 ---
-- name: Install k9s
+- name: Install kail
   homebrew:
-    name: kube-ps1
+    name: boz/repo/kail
     path: ~/.linuxbrew/bin
     state: latest
   become: no

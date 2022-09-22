@@ -1,7 +1,7 @@
 ---
-- name: Install k9s
+- name: Install krew
   homebrew:
-    name: kube-ps1
+    name: krew
     path: ~/.linuxbrew/bin
     state: latest
   become: no

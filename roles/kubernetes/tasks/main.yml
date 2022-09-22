@@ -28,3 +28,7 @@
 - include_tasks: k9s.yml
 
 - include_tasks: kube-ps1.yml
+
+- include_tasks: kail.yml
+
+- include_tasks: krew.yml
