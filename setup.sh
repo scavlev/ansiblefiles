@@ -23,7 +23,7 @@ pyenv latest global
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 
-pip install --upgrade pip ansible jmespath
+pip install --upgrade --user pip ansible jmespath
 
 cd $current_dir
 ./ansiblefiles.sh "$@"
