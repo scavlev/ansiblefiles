@@ -24,3 +24,7 @@
 - include_tasks: kns.yml
 
 - include_tasks: ktx.yml
+
+- include_tasks: k9s.yml
+
+- include_tasks: kube-ps1.yml

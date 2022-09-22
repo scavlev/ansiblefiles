@@ -1,0 +1,23 @@
+---
+- name: Check if homebrew is cloned
+  stat:
+    path: ~/.homebrew
+  register: homebrew_cloned
+
+- name: Clone homebrew
+  git:
+    repo: https://github.com/Homebrew/brew
+    dest: ~/.homebrew
+    accept_hostkey: yes
+  become: no
+  when: not homebrew_cloned.stat.exists
+
+- name: Install homebrew
+  shell: |
+    eval "$(~/.homebrew/bin/brew shellenv)"
+    brew update --force --quiet
+    chmod -R go-w "$(brew --prefix)/share/zsh"
+    brew analytics off
+    brew cleanup -s
+  become: no
+  when: not homebrew_cloned.stat.exists

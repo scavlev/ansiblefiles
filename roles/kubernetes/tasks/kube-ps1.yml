@@ -1,0 +1,7 @@
+---
+- name: Install k9s
+  homebrew:
+    name: kube-ps1
+    path: ~/.homebrew/bin
+    state: latest
+  become: no
