@@ -2,6 +2,7 @@
 - name: Check if homebrew is cloned
   stat:
     path: ~/.homebrew
+  become: no
   register: homebrew_cloned
 
 - name: Clone homebrew
