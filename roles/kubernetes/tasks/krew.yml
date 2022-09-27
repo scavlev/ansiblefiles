@@ -4,4 +4,5 @@
     name: krew
     path: ~/.linuxbrew/bin
     state: latest
+    upgrade: yes
   become: no

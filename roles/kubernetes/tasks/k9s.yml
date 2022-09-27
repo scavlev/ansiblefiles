@@ -4,4 +4,5 @@
     name: derailed/k9s/k9s
     path: ~/.linuxbrew/bin
     state: latest
+    upgrade: yes
   become: no
