@@ -1,0 +1,8 @@
+---
+- name: Install velero
+  homebrew:
+    name: velero
+    path: ~/.linuxbrew/bin
+    state: latest
+    upgrade: yes
+  become: no

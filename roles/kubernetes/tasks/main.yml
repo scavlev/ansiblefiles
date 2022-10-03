@@ -32,3 +32,5 @@
 - include_tasks: kail.yml
 
 - include_tasks: krew.yml
+
+- include_tasks: velero.yml
