@@ -1,6 +1,7 @@
 skip_global_compinit=1
 export ZSH=$HOME/.oh-my-zsh
-export NVM_LAZY=1
+
+zstyle ':omz:plugins:nvm' lazy true
 
 ZSH_THEME="robbyrussell"
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=250'
