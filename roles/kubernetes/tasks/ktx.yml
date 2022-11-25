@@ -2,5 +2,3 @@
 - name: Install ktx
   shell: curl https://raw.githubusercontent.com/blendle/kns/master/bin/ktx -o /usr/local/bin/ktx && chmod +x $_
   changed_when: false
-  args:
-    warn: no

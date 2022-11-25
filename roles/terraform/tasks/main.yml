@@ -21,8 +21,6 @@
 - name: Get terragrunt url
   shell: curl -s https://api.github.com/repos/gruntwork-io/terragrunt/releases/latest | grep "browser_download_url.*linux_amd64" | cut -d '"' -f 4
   changed_when: false
-  args:
-    warn: no
   register: terragrunt_url
 
 - name: Install terragrunt
