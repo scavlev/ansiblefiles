@@ -2,10 +2,10 @@
 
 Active=true
 Name=Open in VSCode
-Comment=Opens current folder in vscode
-Exec=code %P
+Comment=Open in vscode
+Exec=code %F
 Icon-Name=com.visualstudio.code
-Selection=none
+Selection=any
 Extensions=any;
 Quote=double
 Dependencies=code;
