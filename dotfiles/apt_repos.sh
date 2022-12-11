@@ -38,3 +38,10 @@ curl -fsSL "https://packages.microsoft.com/keys/microsoft.asc" | sudo gpg --batc
 
 echo \
   "deb [arch=amd64 signed-by=/etc/apt/keyrings/microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" | sudo tee /etc/apt/sources.list.d/vscode.list >/dev/null
+
+### Grub Customizer ###
+
+curl -fsSL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x59DAD276B942642B1BBD0EACA8AA1FAA3F055C03" | sudo gpg --batch --yes --dearmor -o /etc/apt/keyrings/grub-customizer.gpg
+
+echo \
+  "deb [arch=amd64 signed-by=/etc/apt/keyrings/grub-customizer.gpg] https://ppa.launchpadcontent.net/danielrichter2007/grub-customizer/ubuntu $UBUNTU_CODENAME main" | sudo tee /etc/apt/sources.list.d/grub-customizer.list >/dev/null

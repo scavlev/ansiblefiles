@@ -32,7 +32,8 @@ sudo apt install -y \
   libreoffice \
   libreoffice-style-breeze \
   google-chrome-stable \
-  code
+  code \
+  grub-customizer
 
 sudo apt upgrade -y
 

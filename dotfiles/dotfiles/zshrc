@@ -42,7 +42,7 @@ FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
 source $ZSH/oh-my-zsh.sh
 
-dotfiles() { .ansiblefiles/dotfiles/setup.sh; }
+dotfiles() { ~/.ansiblefiles/dotfiles/setup.sh; }
 
 # Docker
 # Stop all containers
