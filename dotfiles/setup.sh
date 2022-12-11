@@ -2,6 +2,8 @@
 
 export SCRIPT_LOCATION=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
 
+ln -sfn $SCRIPT_LOCATION/dotfiles/nemo/vscode.nemo_action ~/.local/share/nemo/actions/vscode.nemo_action
+
 sudo apt install -y \
   curl \
   ca-certificates \
