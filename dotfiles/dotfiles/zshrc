@@ -16,6 +16,8 @@ eval "$(pyenv init --path)"
 
 export SDKMAN_DIR=$(brew --prefix sdkman-cli)/libexec
 
+export SHOW_AWS_PROMPT=false
+
 plugins=(
   brew
   git
