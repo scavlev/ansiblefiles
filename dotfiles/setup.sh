@@ -33,7 +33,11 @@ sudo apt install -y \
   libreoffice-style-breeze \
   google-chrome-stable \
   code \
-  grub-customizer
+  grub-customizer \
+  numix-icon-theme-square \
+  papirus-icon-theme \
+  papirus-folders \
+  plank
 
 sudo apt upgrade -y
 
