@@ -76,7 +76,8 @@ brew install \
   terragrunt \
   go \
   sdkman/tap/sdkman-cli \
-  asdf
+  asdf \
+  azure-cli
 
 # Zsh
 
