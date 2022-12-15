@@ -38,6 +38,7 @@ plugins=(
   helm
   zsh-sdkman
   asdf
+  terraform
 )
 
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
