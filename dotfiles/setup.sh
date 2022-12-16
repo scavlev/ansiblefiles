@@ -100,6 +100,9 @@ sudo systemctl enable containerd.service
 
 source $(brew --prefix asdf)/libexec/asdf.sh
 
+rm ~/.asdf/shims/*
+asdf reshim
+
 asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
 asdf install nodejs latest
 asdf global nodejs latest
