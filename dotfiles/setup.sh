@@ -77,7 +77,8 @@ brew install \
   go \
   sdkman/tap/sdkman-cli \
   asdf \
-  azure-cli
+  azure-cli \
+  yq
 
 # Zsh
 
