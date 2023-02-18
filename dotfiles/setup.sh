@@ -114,9 +114,9 @@ npm install -g npm
 export SDKMAN_DIR=$(brew --prefix sdkman-cli)/libexec
 source $SDKMAN_DIR/bin/sdkman-init.sh
 
-sdk install java
-sdk install visualvm
-sdk install gradle
+sdk install java </dev/null
+sdk install visualvm </dev/null
+sdk install gradle </dev/null
 
 # Vscode
 
