@@ -73,3 +73,12 @@ curl -fsSL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x9461999446FA
 echo \
   "deb [arch=amd64 signed-by=/etc/apt/keyrings/papirus.gpg] https://ppa.launchpadcontent.net/papirus/papirus/ubuntu $UBUNTU_CODENAME main" |
   sudo tee /etc/apt/sources.list.d/papirus.list >/dev/null
+
+### Nvidia ###
+
+curl -fsSL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x2388FF3BE10A76F638F80723FCAE110B1118213C" |
+  sudo gpg --batch --yes --dearmor -o /etc/apt/keyrings/graphic-drivers.gpg
+
+echo \
+  "deb [arch=amd64 signed-by=/etc/apt/keyrings/graphic-drivers.gpg] https://ppa.launchpadcontent.net/graphics-drivers/ppa/ubuntu $UBUNTU_CODENAME main" |
+  sudo tee /etc/apt/sources.list.d/graphic-drivers.list >/dev/null
