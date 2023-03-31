@@ -18,6 +18,8 @@ fi
 
 ln -sfn $SCRIPT_LOCATION/dotfiles/gitconfig ~/.gitconfig
 
+mkdir -p ~/.config/Code/User
+
 if [[ ! -L ~/.config/Code/User/settings.json ]]; then
   mv ~/.config/Code/User/settings.json ~/.config/Code/User/settings.json.bak
 fi

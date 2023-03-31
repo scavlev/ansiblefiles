@@ -2,6 +2,7 @@
 
 export SCRIPT_LOCATION=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
 
+mkdir -p ~/.local/share/nemo/actions
 ln -sfn $SCRIPT_LOCATION/dotfiles/nemo/vscode.nemo_action ~/.local/share/nemo/actions/vscode.nemo_action
 
 sudo apt install -y \
@@ -37,7 +38,10 @@ sudo apt install -y \
   numix-icon-theme-square \
   papirus-icon-theme \
   papirus-folders \
-  plank
+  plank \
+  lm-sensors
+
+sudo chsh -s /bin/zsh $USER
 
 sudo apt upgrade -y
 
@@ -50,8 +54,6 @@ export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 NONINTERACTIVE=1 bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 source ~/.bashrc
-
-sudo chsh -s /bin/zsh $USER
 
 brew analytics off
 brew cleanup -s
